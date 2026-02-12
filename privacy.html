@@ -19,19 +19,24 @@
             margin: 0; padding: 0; line-height: 1.8;
         }
         .container { max-width: 850px; margin: 0 auto; padding: 80px 25px; }
-        h1 { 
-            color: var(--gold); font-size: 2rem; text-align: center; 
-            letter-spacing: 5px; border-bottom: 1px solid var(--gold);
-            padding-bottom: 30px; margin-bottom: 60px; text-transform: uppercase;
-        }
-        h2 { 
-            color: var(--gold); font-size: 1.1rem; margin-top: 50px; 
-            border-left: 3px solid var(--gold); padding-left: 15px;
-            text-transform: uppercase; letter-spacing: 1px;
-        }
-        p, li { font-size: 0.95rem; color: #bbb; }
-        ul { padding-left: 20px; list-style-type: none; }
-        ul li::before { content: "•"; color: var(--gold); display: inline-block; width: 1em; margin-left: -1em; }
+                <h2>1. Information Collection</h2>
+        <p>The Company collects specific data necessary for secure service operation:</p>
+        <ul>
+            <li><strong>Email Address:</strong> For communication and account identification.</li>
+            <li><strong>IP Address:</strong> For security monitoring and regional optimization.</li>
+            <li><strong>Payment Tokens:</strong> To facilitate transactions via Stripe/Gumroad. <span style="color:var(--gold);">(Note: We do not store or process raw credit card numbers.)</span></li>
+            <li><strong>Access Logs:</strong> For system diagnostics and performance tracking.</li>
+        </ul>
+
+        <h2>2. Purpose of Use</h2>
+        <p>Collected information is utilized strictly for the following purposes:</p>
+        <ul>
+            <li><strong>Customer Support:</strong> Responding to inquiries and providing technical assistance.</li>
+            <li><strong>Payment Integration:</strong> Coordinating with external payment gateways for secure transaction processing.</li>
+            <li><strong>Security & Fraud Prevention:</strong> Detecting and preventing unauthorized access or illicit activities.</li>
+            <li><strong>Service Compliance:</strong> Adhering to legal obligations and internal safety standards.</li>
+        </ul>
+
         
         .info-box {
             background: var(--deep-gray); border: 1px solid #222;
