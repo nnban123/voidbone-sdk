@@ -1,213 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VOIDBONE SDK | Technical Reference</title>
-    
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org/",
-      "@type": "SoftwareApplication",
-      "name": "VOIDBONE SDK",
-      "applicationCategory": "Risk Management Software",
-      "operatingSystem": "Platform Independent",
-      "description": "Human-governed output control gateway for AI risk management. Separates generation (draft) and execution (approval).",
-      "author": { "@type": "Organization", "name": "NEXT BASE" },
-      "datePublished": "2026-02-08"
-    }
-    </script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --bg-color: #050505;
-            --text-main: #888888;
-            --gold-primary: #C5A059;
-            --gold-dim: #7a6335;
-            --border-color: #333;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            font-family: 'Lato', sans-serif;
-            margin: 0;
-            padding: 40px 20px;
-            display: flex;
-            justify-content: center;
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        .container {
-            max-width: 480px; /* Mobile width simulation */
-            width: 100%;
-            border: 1px solid var(--gold-dim);
-            padding: 40px 30px;
-            box-sizing: border-box;
-            position: relative;
-        }
-
-        /* Header Section */
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-            border-bottom: 1px solid var(--gold-dim);
-            padding-bottom: 30px;
-        }
-
-        h1 {
-            font-family: 'Cinzel', serif;
-            color: var(--gold-primary);
-            font-size: 24px;
-            margin: 0 0 10px 0;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .subtitle {
-            font-family: 'Cinzel', serif;
-            color: var(--text-main);
-            font-size: 10px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            opacity: 0.7;
-        }
-
-        /* Content Text */
-        p {
-            font-size: 14px;
-            margin-bottom: 24px;
-            color: #aaa;
-        }
-
-        /* Section Headers */
-        h2 {
-            font-family: 'Cinzel', serif;
-            color: var(--gold-primary);
-            font-size: 14px;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            border-left: 3px solid var(--gold-primary);
-            padding-left: 12px;
-            display: flex;
-            align-items: center;
-        }
-
-        /* Lists */
-        ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        li {
-            font-size: 13px;
-            margin-bottom: 12px;
-            color: #ccc;
-            padding-left: 10px;
-        }
-
-        li strong {
-            color: #e0e0e0;
-            font-weight: 400;
-        }
-
-        li::before {
-            content: "›";
-            color: var(--gold-primary);
-            margin-right: 8px;
-            font-weight: bold;
-        }
-
-        /* Button */
-        .btn-container {
-            margin-top: 40px;
-            margin-bottom: 40px;
-        }
-
-        .btn {
-            display: block;
-            width: 100%;
-            padding: 15px 0;
-            text-align: center;
-            border: 1px solid var(--gold-primary);
-            color: var(--gold-primary);
-            text-decoration: none;
-            font-family: 'Cinzel', serif;
-            font-size: 12px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            box-sizing: border-box;
-        }
-
-        .btn:hover {
-            background-color: rgba(197, 160, 89, 0.1);
-            color: #fff;
-            border-color: #fff;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            font-size: 10px;
-            color: #555;
-            margin-top: 30px;
-            border-top: 1px solid #222;
-            padding-top: 20px;
-        }
-
-        .disclaimer {
-            font-style: italic;
-            margin-bottom: 5px;
-        }
-    </style>
-</head>
-<body>
-
-    <div class="container">
-        <header>
-            <h1>VOIDBONE SDK</h1>
-            <div class="subtitle">Technical Reference</div>
-        </header>
-
-        <p>
-            This page is the official technical reference endpoint for the VOIDBONE SDK, based on the patent-pending NE System design.
-        </p>
-
-        <h2>Architecture Summary</h2>
-        <p>The system rigidly separates generation from execution.</p>
-        <ul>
-            <li><strong>Logic:</strong> Pattern A (HOLD / AUDIT)</li>
-            <li><strong>Separation:</strong> Generative layer decoupled from execution</li>
-            <li><strong>Governance:</strong> Human-in-the-loop (HITL)</li>
-        </ul>
-
-        <h2>Rights & Status</h2>
-        <ul>
-            <li><strong>Holder:</strong> NEXT BASE</li>
-            <li><strong>Patent:</strong> Filed Jan 30, 2026 (Japan)</li>
-            <li><strong>License:</strong> Proprietary</li>
-        </ul>
-
-        <div class="btn-container">
-            <a href="https://8475488513970norisan.gumroad.com/l/hkrzd" class="btn">
-                Official Distribution
-            </a>
-        </div>
-
-        <footer>
-            <div class="disclaimer">DISCLAIMER: Technical reference only.</div>
-            <div>© 2026 NEXT BASE.</div>
-        </footer>
+<section id="legal" style="background: #000; color: #888; padding: 60px 20px; border-top: 1px solid #222; font-family: sans-serif;">
+  <div style="max-width: 800px; margin: 0 auto; line-height: 1.8;">
+    <h2 style="color: #00f2ff; font-size: 1.2rem; margin-bottom: 30px; letter-spacing: 2px; text-transform: uppercase;">Legal Information</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; font-size: 0.85rem;">
+      <div>
+        <p style="margin: 0; font-weight: bold; color: #ccc;">Seller</p>
+        <p style="margin: 0;">NEXT BASE</p>
+      </div>
+      <div>
+        <p style="margin: 0; font-weight: bold; color: #ccc;">Representative</p>
+        <p style="margin: 0;">Norimasa Nakamura</p>
+      </div>
+      <div>
+        <p style="margin: 0; font-weight: bold; color: #ccc;">Address</p>
+        <p style="margin: 0;">Shibuya Dogenzaka Tokyu Building 2F-C, 1-10-8 Dogenzaka, Shibuya-ku, Tokyo, 150-0043, Japan</p>
+      </div>
+      <div>
+        <p style="margin: 0; font-weight: bold; color: #ccc;">Email</p>
+        <p style="margin: 0;">info@nextbase-japan.com</p>
+      </div>
+      <div>
+        <p style="margin: 0; font-weight: bold; color: #ccc;">Phone Number</p>
+        <p style="margin: 0;">Provided upon request.</p>
+      </div>
+      <div>
+        <p style="margin: 0; font-weight: bold; color: #ccc;">Policy</p>
+        <p style="margin: 0;">No returns on digital products. Cancel subscriptions anytime.</p>
+      </div>
     </div>
-
-</body>
-</html>
+    <p style="margin-top: 40px; font-size: 0.7rem; color: #444;">Notation based on the Act on Specified Commercial Transactions.</p>
+  </div>
+</section>
