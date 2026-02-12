@@ -3,160 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - NEXT BASE</title>
+    <title>Privacy Policy | NEXT BASE</title>
     <style>
-        :root {
-            --gold: #d4af37;
-            --dark-gold: #996515;
-            --black: #000000;
-            --deep-gray: #0a0a0a;
-            --text-gray: #a0a0a0;
-        }
-        body { 
-            background-color: var(--black); 
-            color: var(--text-gray); 
-            font-family: 'Helvetica Neue', Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif; 
-            margin: 0; 
-            padding: 0; 
-            line-height: 1.8;
-        }
-        .container { 
-            max-width: 800px; 
-            margin: 0 auto; 
-            padding: 80px 24px;
-        }
-        h1 { 
-            color: var(--gold); 
-            font-size: 1.8rem; 
-            text-align: center; 
-            letter-spacing: 4px; 
-            border-bottom: 1px solid var(--gold);
-            padding-bottom: 20px;
-            margin-bottom: 60px;
-            text-transform: uppercase;
-        }
-        h2 { 
-            color: var(--gold); 
-            font-size: 1.1rem; 
-            margin-top: 50px; 
-            border-left: 2px solid var(--gold);
-            padding-left: 15px;
-            letter-spacing: 1px;
-            background: linear-gradient(to right, #111, transparent);
-        }
-        p, li { font-size: 0.95rem; color: #bbb; }
-        ul { padding-left: 20px; }
-        .info-box {
-            background: var(--deep-gray);
-            border: 1px solid #222;
-            padding: 30px;
-            margin-top: 60px;
-        }
-        .info-item {
-            display: flex;
-            flex-wrap: wrap;
-            margin-bottom: 12px;
-            font-size: 0.85rem;
-        }
-        .info-label {
-            color: var(--dark-gold);
-            width: 140px;
-            font-weight: bold;
-        }
-        .info-value { color: #ddd; flex: 1; min-width: 200px; }
-        .date {
-            text-align: right;
-            font-size: 0.8rem;
-            color: #444;
-            margin-top: 40px;
-        }
-        .back-link {
-            display: block;
-            text-align: center;
-            margin-top: 60px;
-            color: var(--dark-gold);
-            text-decoration: none;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-            border: 1px solid var(--dark-gold);
-            width: fit-content;
-            margin-inline: auto;
-            padding: 10px 30px;
-            transition: 0.3s;
-        }
-        .back-link:hover { 
-            background: var(--gold);
-            color: var(--black);
-        }
+        :root { --gold: #d4af37; --black: #000; --gray: #a0a0a0; }
+        body { background: var(--black); color: var(--gray); font-family: sans-serif; line-height: 1.7; padding: 40px 20px; }
+        .container { max-width: 900px; margin: 0 auto; }
+        h1 { color: var(--gold); text-align: center; letter-spacing: 3px; border-bottom: 1px solid var(--gold); padding-bottom: 20px; margin-bottom: 50px; }
+        h2 { color: var(--gold); font-size: 1rem; border-left: 2px solid var(--gold); padding-left: 10px; margin-top: 40px; text-transform: uppercase; }
+        .lang-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 20px; }
+        .en { font-size: 0.85rem; color: #888; border-left: 1px solid #222; padding-left: 20px; }
+        .jp { font-size: 0.9rem; }
+        .info-box { background: #0a0a0a; border: 1px solid #222; padding: 20px; margin-top: 50px; font-size: 0.8rem; }
+        @media (max-width: 768px) { .lang-grid { grid-template-columns: 1fr; } .en { border-left: none; padding-left: 0; border-top: 1px solid #222; padding-top: 10px; } }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Privacy Policy</h1>
-        
-        <p>NEXT BASE（以下「当社」）は、提供するアプリケーション、ソフトウェア、SDK、ウェブサイトおよび関連サービス（以下「本サービス」）における利用者の個人情報を、以下の方針に基づき適切に取り扱います。</p>
+        <h1>PRIVACY POLICY</h1>
 
-        <h2>1. 取得する情報</h2>
-        <p>当社は、本サービスの提供にあたり、以下の情報を取得する場合があります。</p>
-        <ul>
-            <li>氏名、メールアドレス等の連絡情報（お問い合わせ時）</li>
-            <li>決済情報（Gumroad、Stripe等の決済事業者経由）</li>
-            <li>サービス利用状況に関する情報</li>
-            <li>端末情報（OSバージョン、機種名等）、IPアドレス、ログ情報</li>
-            <li>アプリの動作・エラーに関する技術データ</li>
-        </ul>
-        <p style="color: var(--gold); font-size: 0.85rem;">※クレジットカード情報は当社サーバーでは保持しません。決済は外部決済事業者により高度なセキュリティ下で処理されます。</p>
-
-        <h2>2. 利用目的</h2>
-        <p>取得した情報は、以下の目的で利用します。</p>
-        <ul>
-            <li>本サービスの提供、運営および維持</li>
-            <li>ユーザーサポートおよびお問い合わせへの対応</li>
-            <li>不正利用の防止およびセキュリティの維持</li>
-            <li>本サービスの改善および新機能の開発</li>
-            <li>法令または利用規約に定める義務の履行</li>
-        </ul>
-
-        <h2>3. 第三者提供</h2>
-        <p>当社は、法令に基づく場合を除き、利用者の同意なく個人情報を第三者へ提供することはありません。ただし、決済処理、データ保管、サービス解析等のために外部サービス提供者（決済プラットフォーム、クラウドインフラ等）へ委託する場合があります。</p>
-
-        <h2>4. データの管理</h2>
-        <p>当社は、取得した個人情報の漏洩、滅失、または毀損の防止、その他安全管理のために、合理的かつ適切な措置を講じ、厳重に管理します。</p>
-
-        <h2>5. 利用者の権利</h2>
-        <p>利用者は、ご自身の個人情報について、開示、訂正、削除を求めることができます。これらをご希望の場合は、下記連絡先までお問い合わせください。</p>
-
-        <h2>6. 未成年者の利用</h2>
-        <p>未成年者が本サービスを利用する場合、必要に応じて保護者の同意を得るものとします。</p>
-
-        <h2>7. 国際的なデータ処理</h2>
-        <p>本サービス提供の過程において、利用者の情報は国外（クラウドサーバー等）で処理される場合があります。その際も、適切な保護措置を継続します。</p>
-
-        <h2>8. 改定</h2>
-        <p>本ポリシーは、法令の変更やサービス内容の改訂に伴い、随時更新される場合があります。</p>
-
-        <div class="info-box">
-            <div class="info-item">
-                <span class="info-label">事業者名</span>
-                <span class="info-value">NEXT BASE</span>
-            </div>
-            <div class="info-item">
-                <span class="info-label">運営責任者</span>
-                <span class="info-value">中村 憲正</span>
-            </div>
-            <div class="info-item">
-                <span class="info-label">所在地</span>
-                <span class="info-value">〒150-0043 東京都渋谷区道玄坂1丁目10番8号 渋谷道玄坂東急ビル2F−C</span>
-            </div>
-            <div class="info-item">
-                <span class="info-label">連絡先</span>
-                <span class="info-value">info@nextbase-japan.com</span>
+        <div class="section">
+            <div class="lang-grid">
+                <div class="jp">NEXT BASE（以下「当社」）は、本サービスにおける利用者の個人情報を適切に取り扱います。</div>
+                <div class="en">NEXT BASE ("the Company") handles user's personal information in accordance with this policy.</div>
             </div>
         </div>
 
-        <p class="date">制定日：2026年2月12日</p>
+        <h2>1. Information Collection / 取得する情報</h2>
+        <div class="lang-grid">
+            <div class="jp">当社は、連絡先情報、決済情報、サービス利用状況、および技術データを取得する場合があります。</div>
+            <div class="en">We may collect contact info, payment info, usage data, and technical data for service operation.</div>
+        </div>
 
-        <a href="./" class="back-link">RETURN TO INDEX</a>
+        <h2>2. Purpose of Use / 利用目的</h2>
+        <div class="lang-grid">
+            <div class="jp">本サービスの運営、サポート、不正防止、および改善のために利用します。</div>
+            <div class="en">Used for service operation, support, fraud prevention, and continuous improvement.</div>
+        </div>
+
+        <h2>3. Third-Party / 第三者提供</h2>
+        <div class="lang-grid">
+            <div class="jp">法令に基づく場合を除き、同意なく第三者に提供しません。決済等は外部委託します。</div>
+            <div class="en">No third-party disclosure without consent, except for legal compliance or payment processing.</div>
+        </div>
+
+        <h2>4. Data Management / データ管理</h2>
+        <div class="lang-grid">
+            <div class="jp">不正アクセス防止等の合理的な措置を講じ、厳重に管理します。</div>
+            <div class="en">We implement reasonable measures to prevent unauthorized access and ensure security.</div>
+        </div>
+
+        <div class="info-box">
+            <div style="color:var(--gold); margin-bottom:10px;">Operator / 事業者情報</div>
+            <div>NEXT BASE | Representative: Norimasa Nakamura</div>
+            <div>Shibuya Dogenzaka Tokyu Bldg 2F-C, 1-10-8 Dogenzaka, Shibuya, Tokyo, Japan</div>
+            <div>Contact: info@nextbase-japan.com</div>
+        </div>
+
+        <footer style="text-align:center; margin-top:50px; font-size:0.7rem;">&copy; 2026 NEXT BASE</footer>
     </div>
 </body>
 </html>
