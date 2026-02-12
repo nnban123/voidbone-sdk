@@ -43,16 +43,17 @@ Final responsibility remains with the user.
 
 ---
 
-### **特定商取引法に基づく表記**
+### **Legal Information**
+**Notation based on the Act on Specified Commercial Transactions**
 
-* **販売事業者**：NEXT BASE
-* **運営責任者**：中村 憲正
-* **所在地**：〒150-0043 東京都渋谷区道玄坂1丁目10番8号 渋谷道玄坂東急ビル2F−C
-* **メールアドレス**：info@nextbase-japan.com
-* **電話番号**：請求があった場合、遅滞なく開示いたします。
-* **販売価格**：各商品ページに記載
-* **支払方法**：クレジットカード（Gumroad経由）、Stripe
-* **支払時期**：購入時
-* **商品の引渡時期**：決済完了後、即時ダウンロード
-* **返品・キャンセル**：デジタル商品の特性上、原則返品不可
+* **Seller**: NEXT BASE
+* **Representative**: Norimasa Nakamura
+* **Address**: Shibuya Dogenzaka Tokyu Building 2F-C, 1-10-8 Dogenzaka, Shibuya-ku, Tokyo, 150-0043, Japan
+* **Email**: info@nextbase-japan.com
+* **Phone Number**: Provided without delay upon request.
+* **Price**: Listed on each product page.
+* **Payment Methods**: Credit Card (via Gumroad / Stripe).
+* **Payment Timing**: At the time of purchase.
+* **Delivery**: Instant download upon successful payment.
+* **Returns/Cancellations**: Due to the nature of digital products, returns or cancellations are generally not accepted.
 
