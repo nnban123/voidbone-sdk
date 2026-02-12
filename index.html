@@ -3,58 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VOIDBONE SDK - NEXT BASE</title>
+    <title>VOIDBONE SDK - Technical Reference | NEXT BASE</title>
     <style>
-        body { background-color: #000; color: #fff; font-family: 'Courier New', Courier, monospace; margin: 0; padding: 20px; }
-        .container { max-width: 800px; margin: 0 auto; }
-        h1 { color: #00f2ff; border-bottom: 2px solid #00f2ff; padding-bottom: 10px; }
+        :root {
+            --gold: #d4af37;
+            --dark-gold: #996515;
+            --black: #000000;
+            --deep-gray: #0a0a0a;
+            --text-gray: #a0a0a0;
+        }
+        body { 
+            background-color: var(--black); 
+            color: var(--text-gray); 
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            line-height: 1.6;
+        }
+        .container { 
+            max-width: 900px; 
+            margin: 0 auto; 
+            padding: 60px 20px;
+        }
+        
+        /* Typography */
+        h1, h2, h3 { 
+            color: var(--gold); 
+            text-transform: uppercase; 
+            letter-spacing: 3px; 
+        }
+        h1 { 
+            font-size: 2.2rem; 
+            border-bottom: 1px solid var(--gold); 
+            padding-bottom: 20px; 
+            margin-bottom: 50px;
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+        }
+        h2 { 
+            font-size: 1.1rem; 
+            margin-top: 60px; 
+            border-left: 3px solid var(--gold);
+            padding-left: 15px;
+        }
+        strong { color: var(--gold); }
+        
+        /* Blocks */
         .section { margin-bottom: 40px; }
-        code { background-color: #111; padding: 10px; display: block; border-left: 3px solid #00f2ff; color: #00f2ff; }
-        a { color: #00f2ff; text-decoration: none; border: 1px solid #00f2ff; padding: 5px 10px; transition: 0.3s; }
-        a:hover { background-color: #00f2ff; color: #000; }
+        .feature-card {
+            background: var(--deep-gray);
+            border: 1px solid #222;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 2px;
+        }
+        ul { list-style: none; padding: 0; }
+        ul li::before {
+            content: "▶";
+            color: var(--gold);
+            margin-right: 10px;
+            font-size: 0.8rem;
+        }
+
+        /* Buttons */
+        .btn-gold {
+            display: inline-block;
+            background: transparent;
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            padding: 15px 40px;
+            text-decoration: none;
+            font-weight: bold;
+            letter-spacing: 2px;
+            transition: all 0.4s ease;
+            margin-top: 30px;
+        }
+        .btn-gold:hover {
+            background: var(--gold);
+            color: var(--black);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Legal Information - Black & Gold Style */
+        .legal-section {
+            margin-top: 100px;
+            padding-top: 50px;
+            border-top: 1px solid #333;
+        }
+        .legal-title {
+            color: var(--dark-gold);
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .legal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .legal-item {
+            background: #050505;
+            padding: 15px;
+            border: 1px solid #111;
+        }
+        .legal-label {
+            display: block;
+            color: var(--dark-gold);
+            font-size: 0.7rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+        .legal-value {
+            color: #ddd;
+            font-size: 0.85rem;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 80px;
+            padding-bottom: 40px;
+            font-size: 0.7rem;
+            color: #444;
+            letter-spacing: 2px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>VOIDBONE SDK / REFERENCE</h1>
-        
+        <header>
+            <h1>VOIDBONE SDK <span style="font-weight: lighter; font-size: 1rem; vertical-align: middle; margin-left: 10px; opacity: 0.7;">Technical Reference</span></h1>
+        </header>
+
         <div class="section">
-            <h2>About VOIDBONE</h2>
-            <p>VOIDBONE is a core synchronization logic for autonomous systems. It enables 0.01s physical sync without cloud dependency.</p>
+            <p>This repository provides the primary technical reference for the <strong>VOIDBONE SDK</strong>, a human-governed output control gateway for AI risk management.</p>
         </div>
 
         <div class="section">
-            <h2>Official Distribution</h2>
-            <p>You can purchase VOIDBONE licenses and assets via Gumroad.</p>
-            <a href="http://8475488513970norisan.gumroad.com/l/hkrzd" target="_blank">Go to Gumroad Store</a>
-        </div>
-
-        <div class="section">
-            <h2>Implementation Example</h2>
-            <code>
-// VOIDBONE Sync Logic v1.0
-void update() {
-    sync_engine.lock(PHYSICAL_TICK);
-    process_logic(NE_GATEWAY_OFF);
-}
-            </code>
-        </div>
-
-        <section id="legal" style="background: #000; color: #888; padding: 60px 0; border-top: 1px solid #222; font-family: sans-serif;">
-            <h2 style="color: #00f2ff; font-size: 1.2rem; margin-bottom: 30px; letter-spacing: 2px; text-transform: uppercase;">Legal Information</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; font-size: 0.85rem;">
-                <div><p style="margin:0; font-weight:bold; color:#ccc;">Seller</p><p style="margin:0;">NEXT BASE</p></div>
-                <div><p style="margin:0; font-weight:bold; color:#ccc;">Representative</p><p style="margin:0;">Norimasa Nakamura</p></div>
-                <div><p style="margin:0; font-weight:bold; color:#ccc;">Address</p><p style="margin:0;">Shibuya Dogenzaka Tokyu Building 2F-C, 1-10-8 Dogenzaka, Shibuya-ku, Tokyo, 150-0043, Japan</p></div>
-                <div><p style="margin:0; font-weight:bold; color:#ccc;">Email</p><p style="margin:0;">info@nextbase-japan.com</p></div>
-                <div><p style="margin:0; font-weight:bold; color:#ccc;">Phone Number</p><p style="margin:0;">Provided upon request.</p></div>
-                <div><p style="margin:0; font-weight:bold; color:#ccc;">Policy</p><p style="margin:0;">No returns on digital products.</p></div>
+            <h2>Overview</h2>
+            <div class="feature-card">
+                <p>VOIDBONE implements the <strong>NE System</strong> logic (Patent Pending: 2026-XXXX).<br>
+                Generated output is held in a non-executed state until explicit human approval is provided.</p>
+                <p>The architecture separates generation (draft) from execution (approval), enabling predictable and controlled operation in AI-assisted workflows.</p>
             </div>
-            <p style="margin-top: 40px; font-size: 0.7rem; color: #444;">Notation based on the Act on Specified Commercial Transactions.</p>
-        </section>
+        </div>
 
-        <footer style="margin-top: 50px; text-align: center; font-size: 0.8em; color: #444;">
-            &copy; 2026 NEXT BASE.
+        <div class="section">
+            <h2>Architecture Summary</h2>
+            <ul>
+                <li><strong>Logical Separation:</strong> The generative layer and execution layer are decoupled by design.</li>
+                <li><strong>HOLD Logic (Pattern A):</strong> Output execution is paused when predefined risk conditions are detected.</li>
+                <li><strong>Audit Support (State B):</strong> Reference data structures support recording approval metadata.</li>
+            </ul>
+        </div>
+
+        <div class="section" style="text-align: center;">
+            <h2>Official Distribution</h2>
+            <a href="https://8475488513970norisan.gumroad.com/l/hkrzd" class="btn-gold">ACQUIRE LICENSE ON GUMROAD</a>
+        </div>
+
+        <div class="legal-section">
+            <div class="legal-title">NOTATION BASED ON THE ACT ON SPECIFIED COMMERCIAL TRANSACTIONS</div>
+            <div class="legal-grid">
+                <div class="legal-item"><span class="legal-label">Seller</span><span class="legal-value">NEXT BASE</span></div>
+                <div class="legal-item"><span class="legal-label">Representative</span><span class="legal-value">Norimasa Nakamura</span></div>
+                <div class="legal-item"><span class="legal-label">Address</span><span class="legal-value">Shibuya Dogenzaka Tokyu Building 2F-C, 1-10-8 Dogenzaka, Shibuya, Tokyo</span></div>
+                <div class="legal-item"><span class="legal-label">Email</span><span class="legal-value">info@nextbase-japan.com</span></div>
+                <div class="legal-item"><span class="legal-label">Phone</span><span class="legal-value">Provided without delay upon request.</span></div>
+                <div class="legal-item"><span class="legal-label">Policy</span><span class="legal-value">No returns for digital assets.</span></div>
+            </div>
+        </div>
+
+        <footer>
+            &copy; 2026 NEXT BASE. ALL RIGHTS RESERVED.
         </footer>
     </div>
 </body>
