@@ -1,84 +1,174 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VOIDBONE SDK - Technical Reference | NEXT BASE</title>
-    <style>
-        :root {
-            --gold: #d4af37;
-            --dark-gold: #996515;
-            --black: #000000;
-            --deep-gray: #0a0a0a;
-            --text-gray: #a0a0a0;
-        }
-        body { 
-            background-color: var(--black); 
-            color: var(--text-gray); 
-            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif; 
-            margin: 0; padding: 0; line-height: 1.6;
-        }
-        .container { max-width: 900px; margin: 0 auto; padding: 60px 20px; }
-        h1, h2 { color: var(--gold); text-transform: uppercase; letter-spacing: 3px; }
-        h1 { font-size: 2.2rem; border-bottom: 1px solid var(--gold); padding-bottom: 20px; margin-bottom: 50px; }
-        h2 { font-size: 1.1rem; margin-top: 60px; border-left: 3px solid var(--gold); padding-left: 15px; }
-        strong { color: var(--gold); }
-        .feature-card { background: var(--deep-gray); border: 1px solid #222; padding: 25px; margin: 20px 0; }
-        .btn-gold {
-            display: inline-block; background: transparent; color: var(--gold); border: 1px solid var(--gold);
-            padding: 15px 40px; text-decoration: none; font-weight: bold; letter-spacing: 2px; transition: 0.4s; margin: 30px 0;
-        }
-        .btn-gold:hover { background: var(--gold); color: var(--black); box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); }
-
-        /* Legal Section for Stripe Audit */
-        .legal-section { margin-top: 100px; padding-top: 50px; border-top: 1px solid #333; }
-        .legal-title { color: var(--gold); font-size: 0.9rem; margin-bottom: 30px; text-align: center; letter-spacing: 1px; }
-        .legal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .legal-item { background: #050505; padding: 15px; border: 1px solid #111; }
-        .legal-label { display: block; color: var(--dark-gold); font-size: 0.7rem; font-weight: bold; margin-bottom: 5px; text-transform: uppercase; }
-        .legal-value { color: #ddd; font-size: 0.85rem; }
-        
-        .footer-links { text-align: center; margin-top: 40px; }
-        .footer-links a { color: var(--gold); text-decoration: none; font-size: 0.9rem; margin: 0 15px; border-bottom: 1px solid transparent; }
-        .footer-links a:hover { border-bottom: 1px solid var(--gold); }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NEXTBASE | VOIDBONE SDK</title>
+  <meta name="description" content="NEXTBASEのデジタル製品（VOIDBONE SDK）のライセンス販売ページ。価格、購入方法、特商法表記、プライバシーポリシーを掲載。" />
+  <style>
+    :root{
+      --bg:#050505;
+      --panel:#0e0e0e;
+      --line:#232323;
+      --gold:#d6b25e;
+      --gold2:#b48b2a;
+      --text:#e8e8e8;
+      --muted:#bdbdbd;
+      --danger:#ff5a5a;
+    }
+    *{box-sizing:border-box;}
+    body{
+      margin:0; background:var(--bg); color:var(--text);
+      font-family: system-ui, -apple-system, "Noto Sans JP", sans-serif;
+    }
+    a{color:var(--gold); text-decoration:none;}
+    a:hover{text-decoration:underline;}
+    .wrap{max-width:980px; margin:0 auto; padding:28px 16px 60px;}
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px; margin-bottom:18px;
+    }
+    .brand{
+      letter-spacing:.18em; font-weight:900; color:var(--muted); font-size:12px;
+    }
+    .pill{
+      display:inline-block; padding:6px 10px; border-radius:999px;
+      border:1px solid var(--line); color:var(--muted); font-size:12px;
+    }
+    .hero{
+      border:1px solid var(--line); border-radius:16px;
+      background: radial-gradient(1200px 600px at 30% -20%, rgba(214,178,94,.16), transparent 55%),
+                  linear-gradient(180deg, #0b0b0b, #070707);
+      box-shadow: 0 18px 40px rgba(0,0,0,.5);
+      padding:22px;
+    }
+    h1{
+      margin:10px 0 6px; font-size:34px; letter-spacing:.02em;
+      color:var(--gold);
+    }
+    .sub{margin:0 0 18px; color:var(--muted); font-size:13px; line-height:1.7;}
+    .grid{display:grid; grid-template-columns: 1.1fr .9fr; gap:16px; margin-top:12px;}
+    @media (max-width: 860px){ .grid{grid-template-columns:1fr;} }
+    .card{
+      border:1px solid var(--line); border-radius:14px;
+      background:linear-gradient(180deg, #0c0c0c, #070707);
+      padding:16px;
+    }
+    .label{color:var(--muted); font-weight:800; font-size:12px; letter-spacing:.12em;}
+    .price{
+      margin:10px 0 4px; font-size:30px; font-weight:900; color:var(--text);
+    }
+    .price small{font-size:12px; color:var(--muted); font-weight:700;}
+    .btn{
+      display:block; width:100%;
+      background: linear-gradient(90deg, var(--gold), var(--gold2));
+      color:#111; border:none; border-radius:12px;
+      padding:14px 14px; font-weight:900; text-align:center;
+      margin-top:12px;
+      box-shadow: 0 10px 22px rgba(214,178,94,.18);
+    }
+    .btn:hover{filter:brightness(1.05); text-decoration:none;}
+    .list{margin:10px 0 0; padding-left:18px; color:var(--text); font-size:13px; line-height:1.7;}
+    .list li{margin:6px 0;}
+    .note{margin-top:10px; color:var(--muted); font-size:12px; line-height:1.7;}
+    .divider{height:1px; background:var(--line); margin:14px 0;}
+    .mini{
+      display:flex; flex-wrap:wrap; gap:10px;
+      color:var(--muted); font-size:12px;
+    }
+    .mini span{border:1px solid var(--line); border-radius:999px; padding:6px 10px;}
+    footer{
+      margin-top:18px; padding-top:16px;
+      border-top:1px solid var(--line);
+      color:var(--muted); font-size:12px;
+      display:flex; flex-wrap:wrap; gap:14px; align-items:center; justify-content:space-between;
+    }
+    .links{display:flex; flex-wrap:wrap; gap:14px;}
+    .danger{color:var(--danger); font-weight:800;}
+    .contact{color:var(--muted);}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>VOIDBONE SDK <span style="font-size: 0.9rem; opacity: 0.6;">v1.0.4 CORE</span></h1>
+  <div class="wrap">
 
-        <div class="section">
-            <p><strong>VOIDBONE SDK</strong> is a human-governed output control gateway for AI risk management, implementing the <strong>NE System</strong> logic (Patent Pending: 2026-XXXX).</p>
-            <div class="feature-card">
-                <p>Architecture separates generation from execution, enabling predictable operation in AI-assisted workflows.</p>
-            </div>
-        </div>
-
-        <div style="text-align: center;">
-            <a href="https://8475488513970norisan.gumroad.com/l/hkrzd" class="btn-gold">PURCHASE LICENSE (GUMROAD)</a>
-        </div>
-
-        <div class="legal-section">
-            <div class="legal-title">SPECIFIED COMMERCIAL TRANSACTIONS ACT (特定商取引法に基づく表記)</div>
-            <div class="legal-grid">
-                <div class="legal-item"><span class="legal-label">Seller (屋号)</span><span class="legal-value">NEXT BASE JAPAN</span></div>
-                <div class="legal-item"><span class="legal-label">Representative (代表)</span><span class="legal-value">Norimasa Nakamura</span></div>
-                <div class="legal-item"><span class="legal-label">Address (所在地)</span><span class="legal-value">Shibuya Dogenzaka Tokyu Bldg 2F-C, 1-10-8 Dogenzaka, Shibuya, Tokyo<br>(Main Office: Nagano, Japan)</span></div>
-                <div class="legal-item"><span class="legal-label">Contact (連絡先)</span><span class="legal-value">info@nextbase-japan.com</span></div>
-                <div class="legal-item"><span class="legal-label">Price (価格)</span><span class="legal-value">Listed on each product page.</span></div>
-                <div class="legal-item"><span class="legal-label">Delivery (引渡時期)</span><span class="legal-value">Instant download via email link.</span></div>
-                <div class="legal-item"><span class="legal-label">Return Policy (返品)</span><span class="legal-value">Digital goods: No returns/refunds.</span></div>
-            </div>
-        </div>
-
-        <div class="footer-links">
-            <a href="privacy.html">Privacy Policy (プライバシーポリシー)</a>
-        </div>
-
-        <footer style="text-align: center; margin-top: 80px; font-size: 0.7rem; color: #444;">
-            &copy; 2026 NEXT BASE JAPAN. ALL RIGHTS RESERVED.<br>
-            <span style="opacity: 0.5;">Representative: Norimasa Nakamura</span>
-        </footer>
+    <div class="topbar">
+      <div class="brand">NEXTBASE</div>
+      <div class="pill">Digital License Sale</div>
     </div>
+
+    <div class="hero">
+      <div class="label">PRODUCT</div>
+      <h1>VOIDBONE — Black Box SDK</h1>
+      <p class="sub">
+        出力の“確定”と“実行”を分離し、<b>人間の最終判断を前提</b>に運用できるよう設計された<br>
+        デジタルSDK（ライセンス提供）です。<span class="danger">※本ページは販売ページです。</span>
+      </p>
+
+      <div class="grid">
+        <!-- LEFT: DESCRIPTION -->
+        <div class="card">
+          <div class="label">WHAT YOU GET</div>
+          <ul class="list">
+            <li>デジタル製品（SDK/ドキュメント/ライセンス）</li>
+            <li>決済完了後：<b>Gumroad</b> から即時ダウンロード</li>
+            <li>物理配送なし（デジタル提供のみ）</li>
+          </ul>
+
+          <div class="divider"></div>
+
+          <div class="label">DELIVERY / SUPPORT</div>
+          <ul class="list">
+            <li>納品：決済完了後、即時</li>
+            <li>サポート：メール（<a href="mailto:info@nextbase-japan.com">info@nextbase-japan.com</a>）</li>
+          </ul>
+
+          <p class="note">
+            ※ 返金：デジタル商品の性質上、原則返金不可（詳細は特商法ページに記載）
+          </p>
+        </div>
+
+        <!-- RIGHT: PRICE + CTA -->
+        <div class="card">
+          <div class="label">PRICE</div>
+          <div class="price">$3,999 <small>（Gumroad決済 / 通貨はGumroad表示に従います）</small></div>
+
+          <!-- ✅ ここをあなたの $3,999 商品リンクにする -->
+          <a class="btn" href="https://8475488513970norisan.gumroad.com/l/hkrzd">
+            PURCHASE LICENSE (GUMROAD)
+          </a>
+
+          <div class="divider"></div>
+
+          <div class="label">HOW TO BUY</div>
+          <ol class="list" style="padding-left:22px;">
+            <li>上の購入ボタンを押す</li>
+            <li>Gumroadで決済する</li>
+            <li>決済完了後、即時ダウンロード</li>
+          </ol>
+
+          <div class="divider"></div>
+
+          <div class="mini">
+            <span>Business: NEXTBASE</span>
+            <span>Digital only</span>
+            <span>No auto execution</span>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="links">
+          <a href="./tokutei.html">特定商取引法に基づく表記</a>
+          <a href="./privacy.html">プライバシーポリシー</a>
+          <!-- 利用規約があるなら追加 -->
+          <!-- <a href="./terms.html">利用規約</a> -->
+        </div>
+        <div class="contact">
+          Contact: <a href="mailto:info@nextbase-japan.com">info@nextbase-japan.com</a>
+        </div>
+      </footer>
+    </div>
+
+  </div>
 </body>
 </html>
