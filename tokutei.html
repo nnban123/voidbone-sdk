@@ -1,61 +1,141 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>特定商取引法に基づく表記 | NEXT BASE</title>
-    <style>
-        body {
-            background-color: #000;
-            color: #d4af37; /* ゴールド */
-            font-family: sans-serif;
-            padding: 20px;
-            line-height: 1.6;
-        }
-        h1 { border-bottom: 2px solid #d4af37; padding-bottom: 10px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { border: 1px solid #333; padding: 15px; text-align: left; }
-        th { background-color: #1a1a1a; width: 30%; font-weight: bold; color: #fff; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>特定商取引法に基づく表記 | NEXTBASE</title>
+  <style>
+    :root{
+      --bg:#050505;
+      --panel:#0e0e0e;
+      --line:#232323;
+      --gold:#d6b25e;
+      --text:#e8e8e8;
+      --muted:#bdbdbd;
+    }
+    body{
+      margin:0; background:var(--bg); color:var(--text);
+      font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+      line-height: 1.8;
+    }
+    .wrap{max-width:800px; margin:0 auto; padding:60px 20px;}
+    .header{border-bottom:1px solid var(--line); margin-bottom:40px; padding-bottom:20px;}
+    .brand{letter-spacing:.2em; font-weight:900; color:var(--muted); font-size:12px; margin-bottom:10px;}
+    h1{font-size:24px; color:var(--gold); margin:0; letter-spacing: 0.1em;}
+    
+    .table-section{margin-bottom:50px;}
+    .row{
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      border-bottom: 1px solid var(--line);
+      padding: 20px 0;
+    }
+    @media (max-width: 600px){
+      .row{grid-template-columns: 1fr; gap:8px;}
+    }
+    .label{font-weight:700; color:var(--gold); font-size:14px; text-transform: uppercase;}
+    .content{font-size:15px; color:var(--text);}
+    
+    footer{margin-top:60px; font-size:12px; color:var(--muted); text-align:center;}
+    a{color:var(--gold); text-decoration:none;}
+  </style>
 </head>
 <body>
+  <div class="wrap">
+    <div class="header">
+      <div class="brand">NEXTBASE — ONE-HA DIVISION</div>
+      <h1>特定商取引法に基づく表記</h1>
+    </div>
 
-    <h1>特定商取引法に基づく表記</h1>
+    <div class="table-section">
+      <div class="row">
+        <div class="label">販売事業者</div>
+        <div class="content">NEXTBASE（代表：中村 憲正）</div>
+      </div>
+      
+      <div class="row">
+        <div class="label">運営責任者</div>
+        <div class="content">中村 憲正</div>
+      </div>
 
-    <table>
-        <tr>
-            <th>販売業者</th>
-            <td>NEXT BASE</td>
-        </tr>
-        <tr>
-            <th>運営統括責任者</th>
-            <td>中村　憲正(ナカムラ　ノリマサ）</td>
-        </tr>
-        <tr>
-            <th>所在地</th>
-            <td>〒150-0043<br>東京都渋谷区道玄坂1丁目10番8号<br>渋谷道玄坂東急ビル2F−C</td>
-        </tr>
-        <tr>
-            <th>メールアドレス</th>
-            <td>info@nextbase-japan.com</td>
-        </tr>
-        <tr>
-            <th>商品代金以外の必要料金</th>
-            <td>・消費税<br>・送料（全国一律 〇〇円 / または実費）<br>・振込手数料（銀行振込の場合）</td>
-        </tr>
-        <tr>
-            <th>引き渡し時期</th>
-            <td>ご注文から7日以内に発送いたします。</td>
-        </tr>
-        <tr>
-            <th>お支払い方法</th>
-            <td>・クレジットカード決済<br>・銀行振込</td>
-        </tr>
-        <tr>
-            <th>返品・交換について</th>
-            <td>商品到着後7日以内であれば、初期不良に限り交換いたします。<br>お客様都合による返品はお受けできません。</td>
-        </tr>
-    </table>
+      <div class="row">
+        <div class="label">所在地</div>
+        <div class="content">
+          〒150-0043<br>
+          東京都渋谷区道玄坂1丁目10番8号 渋谷道玄坂東急ビル2F−C
+        </div>
+      </div>
 
+      <div class="row">
+        <div class="label">メールアドレス</div>
+        <div class="content">info@nextbase-japan.com</div>
+      </div>
+
+      <div class="row">
+        <div class="label">電話番号</div>
+        <div class="content">
+          050-XXXX-XXXX<br>
+          <span style="font-size:12px; color:var(--muted);">※記載の電話番号は、本サービスの契約・技術に関するお問い合わせ用です。営業等のご連絡はご遠慮ください。</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="label">販売価格</div>
+        <div class="content">
+          各プロダクトの購入ページ、または個別の見積書に記載の通り。
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="label">商品代金以外の必要料金</div>
+        <div class="content">
+          ・消費税（表示価格に内包、または別途明記）<br>
+          ・インターネット接続料金および通信料金（お客様負担）
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="label">支払方法</div>
+        <div class="content">
+          クレジットカード決済（Stripe / Gumroad 経由）<br>
+          銀行振込
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="label">支払時期</div>
+        <div class="content">
+          クレジットカード決済：購入時（各カード会社の規定に準ずる）<br>
+          銀行振込：請求書発行後14日以内
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="label">商品の引渡時期</div>
+        <div class="content">
+          決済完了確認後、即時にデジタルパッケージのダウンロードリンクまたはアクセス権を付与いたします。
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="label">返品・交換・キャンセル</div>
+        <div class="content">
+          提供するプロダクトの性質（デジタルコンテンツおよびソフトウェアライセンス）上、<strong>決済完了後のキャンセル・返品・返金には一切応じられません。</strong><br>
+          動作環境および仕様を事前にご確認の上、ご購入ください。
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="label">動作環境</div>
+        <div class="content">
+          各プロダクトの技術ドキュメント（README.md等）に記載のシステム要件を満たす環境。
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>© 2026 NEXTBASE | <a href="./index.html">RETURN TO TOP</a></p>
+    </footer>
+  </div>
 </body>
 </html>
