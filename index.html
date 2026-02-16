@@ -4,187 +4,127 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>NEXTBASE | VOIDBONE SDK</title>
-  <meta name="description" content="Digital license product by NEXTBASE. VOIDBONE Black Box SDK. Price, purchase method, commerce disclosure, and privacy policy." />
+  <meta name="description" content="VOIDBONE SDK - A proprietary digital software toolkit by NEXTBASE. Secure generation-execution separation architecture." />
   <style>
     :root{
       --bg:#050505;
-      --panel:#0e0e0e;
-      --line:#232323;
+      --panel:#0a0a0a;
+      --line:#1a1a1a;
       --gold:#d6b25e;
-      --gold2:#b48b2a;
-      --text:#e8e8e8;
-      --muted:#bdbdbd;
-      --danger:#ff5a5a;
+      --gold-dark:#b48b2a;
+      --text:#e0e0e0;
+      --muted:#888;
     }
     *{box-sizing:border-box;}
     body{
       margin:0; background:var(--bg); color:var(--text);
-      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-      line-height: 1.5;
+      font-family: "Inter", system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
     }
-    a{color:var(--gold); text-decoration:none;}
-    a:hover{text-decoration:underline;}
-    .wrap{max-width:980px; margin:0 auto; padding:20px 16px 60px;}
+    .wrap{max-width:900px; margin:0 auto; padding:40px 20px;}
     
-    /* 上部の通知バー：Stripe対策 */
-    .stripe-notice {
-      background: var(--panel);
+    /* Stripe & Trust Notice Bar */
+    .identity-bar {
+      background: linear-gradient(90deg, #111, #050505);
       border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 12px;
-      margin-bottom: 20px;
-      font-size: 11px;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 30px;
+      font-size: 12px;
       color: var(--muted);
       text-align: center;
+      letter-spacing: 0.05em;
     }
+    .identity-bar strong { color: var(--gold); }
 
-    .topbar{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:12px; margin-bottom:18px;
-    }
-    .brand{
-      letter-spacing:.18em; font-weight:900; color:var(--muted); font-size:12px;
-    }
-    .pill{
-      display:inline-block; padding:6px 10px; border-radius:999px;
-      border:1px solid var(--line); color:var(--muted); font-size:11px;
-    }
     .hero{
-      border:1px solid var(--line); border-radius:16px;
-      background: radial-gradient(1200px 600px at 30% -20%, rgba(214,178,94,.16), transparent 55%),
-                  linear-gradient(180deg, #0b0b0b, #070707);
-      box-shadow: 0 18px 40px rgba(0,0,0,.5);
-      padding:24px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: radial-gradient(circle at 20% -20%, rgba(214,178,94,0.15), transparent 50%),
+                  #070707;
+      padding: 40px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.8);
     }
-    h1{
-      margin:10px 0 8px; font-size:32px; letter-spacing:.02em;
-      color:var(--gold); line-height: 1.1;
-    }
-    .sub{margin:0 0 18px; color:var(--muted); font-size:14px; line-height:1.6;}
-    .grid{display:grid; grid-template-columns: 1.1fr .9fr; gap:16px; margin-top:12px;}
-    @media (max-width: 768px){ 
-      .grid{grid-template-columns:1fr;} 
-      h1{font-size: 28px;}
-    }
-    .card{
-      border:1px solid var(--line); border-radius:14px;
-      background:linear-gradient(180deg, #0c0c0c, #070707);
-      padding:20px;
-    }
-    .label{color:var(--muted); font-weight:800; font-size:11px; letter-spacing:.12em; text-transform: uppercase;}
-    .price{
-      margin:12px 0 4px; font-size:32px; font-weight:900; color:var(--text);
-    }
-    .price small{font-size:12px; color:var(--muted); font-weight:700; display: block; margin-top: 4px;}
+    .label{ font-size: 10px; font-weight: 900; letter-spacing: 0.3em; color: var(--gold); text-transform: uppercase; margin-bottom: 15px; display: block; }
+    h1{ font-size: 42px; margin: 0 0 10px; letter-spacing: -0.02em; color: #fff; line-height: 1.1; }
+    .sub{ font-size: 16px; color: var(--muted); margin-bottom: 35px; max-width: 600px; }
+
+    .grid{ display: grid; grid-template-columns: 1fr 320px; gap: 24px; }
+    @media (max-width: 800px){ .grid { grid-template-columns: 1fr; } }
+
+    .card{ background: #0c0c0c; border: 1px solid var(--line); border-radius: 16px; padding: 24px; }
+    .card h3{ font-size: 12px; margin: 0 0 15px; color: var(--muted); letter-spacing: 0.1em; }
+    
+    .list{ margin: 0; padding: 0; list-style: none; font-size: 14px; }
+    .list li{ margin-bottom: 12px; padding-left: 20px; position: relative; }
+    .list li::before{ content: "→"; position: absolute; left: 0; color: var(--gold); }
+
+    .price-box{ text-align: center; }
+    .price-tag{ font-size: 48px; font-weight: 900; color: #fff; margin-bottom: 5px; }
+    .price-tag span{ font-size: 14px; color: var(--muted); font-weight: 400; }
+
     .btn{
-      display:block; width:100%;
-      background: linear-gradient(90deg, var(--gold), var(--gold2));
-      color:#111; border:none; border-radius:12px;
-      padding:16px; font-weight:900; text-align:center;
-      margin-top:16px;
-      box-shadow: 0 10px 22px rgba(214,178,94,.18);
-      transition: transform 0.2s;
+      display: block; width: 100%; padding: 18px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: #000; font-weight: 900; text-decoration: none;
+      border-radius: 12px; text-align: center;
+      box-shadow: 0 10px 20px rgba(214,178,94,0.2);
+      transition: all 0.3s ease; margin-top: 20px;
     }
-    .btn:hover{filter:brightness(1.05); text-decoration:none; transform: translateY(-2px);}
-    .list{margin:12px 0 0; padding-left:18px; color:var(--text); font-size:13px; line-height:1.7;}
-    .list li{margin:8px 0;}
-    .note{margin-top:14px; color:var(--muted); font-size:12px; line-height:1.6; border-left: 2px solid var(--gold2); padding-left: 10px;}
-    .divider{height:1px; background:var(--line); margin:16px 0;}
-    .mini{
-      display:flex; flex-wrap:wrap; gap:8px;
-      color:var(--muted); font-size:11px;
+    .btn:hover{ transform: translateY(-3px); box-shadow: 0 15px 30px rgba(214,178,94,0.3); }
+
+    .footer-links{
+      margin-top: 40px; border-top: 1px solid var(--line); padding-top: 20px;
+      display: flex; justify-content: space-between; font-size: 12px; color: var(--muted);
     }
-    .mini span{border:1px solid var(--line); border-radius:999px; padding:4px 10px;}
-    footer{
-      margin-top:20px; padding-top:16px;
-      border-top:1px solid var(--line);
-      color:var(--muted); font-size:11px;
-      display:flex; flex-wrap:wrap; gap:14px; align-items:center; justify-content:space-between;
-    }
-    .links{display:flex; flex-wrap:wrap; gap:14px;}
+    .footer-links a { color: var(--gold); text-decoration: none; margin-right: 20px; }
   </style>
 </head>
 <body>
+
   <div class="wrap">
-
-    <div class="stripe-notice">
-      NEXTBASE One-ha Division: VOIDBONE SDK is a proprietary digital software toolkit. <br>
-      <strong>All products are delivered digitally after payment confirmation. No physical goods are shipped.</strong>
-    </div>
-
-    <div class="topbar">
-      <div class="brand">NEXTBASE</div>
-      <div class="pill">Digital License Product</div>
+    <div class="identity-bar">
+      NEXTBASE ONE-HA DIVISION | <strong>VOIDBONE SDK</strong> <br>
+      This is a <strong>Digital Proprietary Software Product</strong>. 
+      No physical shipment. Immediate delivery upon payment.
     </div>
 
     <div class="hero">
-      <div class="label">PRODUCT</div>
-      <h1>VOIDBONE — Black Box SDK</h1>
-      <p class="sub">
-        A human-governed output control architecture designed to separate generation from execution. 
-        Instant digital delivery. No physical shipment.
-      </p>
+      <span class="label">Architecture</span>
+      <h1>VOIDBONE</h1>
+      <p class="sub">A proprietary execution control SDK designed for separating generation logic from production environments.</p>
 
       <div class="grid">
         <div class="card">
-          <div class="label">WHAT YOU GET</div>
+          <h3>PROVISIONS</h3>
           <ul class="list">
-            <li>Digital SDK package (downloadable file)</li>
-            <li>Technical Documentation and Integration Guide</li>
-            <li>Commercial License for deployment</li>
+            <li>Digital SDK core package (Encrypted binary)</li>
+            <li>Integration Manifest & Documentation</li>
+            <li>Global Commercial Deployment License</li>
           </ul>
-
-          <div class="divider"></div>
-
-          <div class="label">DELIVERY & SUPPORT</div>
-          <ul class="list">
-            <li><strong>Instant download</strong> after payment confirmation</li>
-            <li>Technical support via email: <a href="mailto:info@nextbase-japan.com">info@nextbase-japan.com</a></li>
-          </ul>
-
-          <p class="note">
-            Due to the nature of digital products, all sales are final and non-refundable.
-          </p>
+          <div style="margin-top:25px; font-size:12px; color:var(--muted); border-left: 2px solid var(--gold); padding-left: 15px;">
+            Support: <a href="mailto:info@nextbase-japan.com">info@nextbase-japan.com</a><br>
+            Format: Instant Digital Download
+          </div>
         </div>
 
-        <div class="card">
-          <div class="label">PRICE</div>
-          <div class="price">$3,999 <small>(Final price calculated at checkout)</small></div>
-
-          <a class="btn" href="https://8475488513970norisan.gumroad.com/l/hkrzd">
-            PURCHASE LICENSE (GUMROAD)
-          </a>
-
-          <div class="divider"></div>
-
-          <div class="label">HOW IT WORKS</div>
-          <ol class="list" style="padding-left:22px;">
-            <li>Secure checkout via Gumroad (Stripe/Credit Card)</li>
-            <li>Automated verification of transaction</li>
-            <li>Immediate access to download links</li>
-          </ol>
-
-          <div class="divider"></div>
-
-          <div class="mini">
-            <span>Entity: NEXTBASE</span>
-            <span>Digital Delivery</span>
-            <span>Non-Physical</span>
-          </div>
+        <div class="card price-box">
+          <h3>LICENSE FEE</h3>
+          <div class="price-tag">$3,999<br><span>USD / Full License</span></div>
+          <a href="https://8475488513970norisan.gumroad.com/l/hkrzd" class="btn">PURCHASE NOW</a>
+          <p style="font-size:10px; color:var(--muted); margin-top:15px;">Secure transaction via Gumroad / Stripe</p>
         </div>
       </div>
 
-      <footer>
-        <div class="links">
+      <div class="footer-links">
+        <div>
           <a href="./tokutei.html">Commerce Disclosure (JP)</a>
           <a href="./privacy.html">Privacy Policy</a>
         </div>
-        <div>
-          © 2026 NEXTBASE | <a href="mailto:info@nextbase-japan.com">Contact Support</a>
-        </div>
-      </footer>
+        <div>© 2026 NEXTBASE</div>
+      </div>
     </div>
-
   </div>
+
 </body>
 </html>
