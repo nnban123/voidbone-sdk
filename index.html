@@ -1,39 +1,83 @@
-<div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; align-items: start;">
-  
-  <div class="card" style="border-top: 4px solid var(--line);">
-    <div class="label">Starter Kit</div>
-    <div class="price" style="font-size: 32px;">$39 <span style="font-size: 14px; color: var(--muted);">/ Evaluation</span></div>
-    <ul class="list" style="margin-top: 20px;">
-      <li>Core SDK Binary (Limited)</li>
-      <li>Reference Documentation</li>
-      <li>Instant Digital Download</li>
-    </ul>
-    <a href="https://8475488513970norisan.gumroad.com/l/ezcosu" class="btn" style="background: #222; color: #fff; border: 1px solid var(--line);">GET STARTER</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VOIDBONE | NEXTBASE</title>
+  <style>
+    :root{ --bg:#050505; --panel:#0c0c0c; --line:#1a1a1a; --gold:#d6b25e; --text:#e0e0e0; --muted:#888; }
+    body{ margin:0; background:var(--bg); color:var(--text); font-family:system-ui,sans-serif; line-height:1.5; }
+    .wrap{ max-width:1000px; margin:0 auto; padding:40px 20px; }
+    .hero{ text-align:center; padding:60px 0; border-bottom:1px solid var(--line); margin-bottom:40px; }
+    h1{ font-size:48px; color:#fff; letter-spacing:-0.02em; margin:0; }
+    .grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; align-items:stretch; }
+    .card{ background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:30px; display:flex; flex-direction:column; }
+    .label{ font-size:10px; font-weight:900; color:var(--gold); letter-spacing:0.2em; text-transform:uppercase; margin-bottom:10px; }
+    .price{ font-size:36px; font-weight:900; color:#fff; margin-bottom:20px; }
+    .price span{ font-size:14px; color:var(--muted); font-weight:400; }
+    .list{ margin:0 0 30px 0; padding:0; list-style:none; flex-grow:1; }
+    .list li{ font-size:13px; color:var(--text); margin-bottom:10px; padding-left:18px; position:relative; }
+    .list li::before{ content:"→"; position:absolute; left:0; color:var(--gold); }
+    .btn{ display:block; width:100%; padding:15px; background:var(--gold); color:#000; text-align:center; text-decoration:none; font-weight:900; border-radius:8px; transition:0.2s; }
+    .btn:hover{ opacity:0.8; transform:translateY(-2px); }
+    .footer{ margin-top:60px; text-align:center; font-size:12px; color:var(--muted); }
+    .footer a{ color:var(--gold); text-decoration:none; margin:0 10px; }
+    .featured{ border:2px solid var(--gold); transform:scale(1.05); z-index:10; background:#0f0f0f; }
+  </style>
+</head>
+<body>
+
+  <div class="wrap">
+    <div class="hero">
+      <div class="label">NEXTBASE One-ha Division</div>
+      <h1>VOIDBONE SDK</h1>
+      <p style="color:var(--muted); margin-top:10px;">Separation of Generation and Execution.</p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <div class="label">Starter Kit</div>
+        <div class="price">$39 <span>/ Eval</span></div>
+        <ul class="list">
+          <li>Core SDK Binary (Evaluation)</li>
+          <li>Reference Documentation</li>
+          <li>Instant Digital Download</li>
+        </ul>
+        <a href="https://8475488513970norisan.gumroad.com/l/ezcosu" class="btn" style="background:#222; color:#fff;">GET STARTER</a>
+      </div>
+
+      <div class="card featured">
+        <div class="label">★ MOST POPULAR</div>
+        <div class="label">Business Edition</div>
+        <div class="price">$1,999 <span>/ License</span></div>
+        <ul class="list">
+          <li>Full SDK Package + Updates</li>
+          <li>Implementation Guide</li>
+          <li>Standard Email Support</li>
+          <li>Commercial Use License</li>
+        </ul>
+        <a href="https://8475488513970norisan.gumroad.com/l/qplaz" class="btn">CHOOSE BUSINESS</a>
+      </div>
+
+      <div class="card">
+        <div class="label">Enterprise</div>
+        <div class="price">$3,999 <span>/ Priority</span></div>
+        <ul class="list">
+          <li>Full Source Consultation</li>
+          <li>24/7 Priority Support</li>
+          <li>Architectural Review</li>
+          <li>Global Commercial Rights</li>
+        </ul>
+        <a href="https://8475488513970norisan.gumroad.com/l/hkrzd" class="btn" style="background:#222; color:#fff;">GO ENTERPRISE</a>
+      </div>
+    </div>
+
+    <div class="footer">
+      <a href="./tokutei.html">Commerce Disclosure</a>
+      <a href="./privacy.html">Privacy Policy</a>
+      <p style="margin-top:20px;">© 2026 NEXTBASE</p>
+    </div>
   </div>
 
-  <div class="card" style="border: 2px solid var(--gold); background: #0c0c0c; transform: scale(1.05); box-shadow: 0 20px 40px rgba(0,0,0,0.6);">
-    <div class="label" style="color: var(--gold); font-weight: 900;">★ MOST POPULAR ★</div>
-    <div class="label">Business Edition</div>
-    <div class="price" style="font-size: 32px;">$1,999 <span style="font-size: 14px; color: var(--muted);">/ Commercial</span></div>
-    <ul class="list" style="margin-top: 20px;">
-      <li>Full SDK + Future Updates</li>
-      <li>Standard Implementation Guide</li>
-      <li>Standard Email Support</li>
-      <li>Commercial Use License</li>
-    </ul>
-    <a href="https://8475488513970norisan.gumroad.com/l/qplaz" class="btn">CHOOSE BUSINESS</a>
-  </div>
-
-  <div class="card" style="border-top: 4px solid var(--gold-dark);">
-    <div class="label">Enterprise Full</div>
-    <div class="price" style="font-size: 32px;">$3,999 <span style="font-size: 14px; color: var(--muted);">/ Priority</span></div>
-    <ul class="list" style="margin-top: 20px;">
-      <li>Full Source Access Consultation</li>
-      <li>24/7 Priority Support Channel</li>
-      <li>Architectural Review Slot</li>
-      <li>Global Commercial Rights</li>
-    </ul>
-    <a href="https://8475488513970norisan.gumroad.com/l/hkrzd" class="btn" style="background: var(--line); color: var(--text);">GO ENTERPRISE</a>
-  </div>
-
-</div>
+</body>
+</html>
