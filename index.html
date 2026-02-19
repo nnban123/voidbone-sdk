@@ -1,130 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>NEXTBASE | VOIDBONE SDK</title>
-  <meta name="description" content="VOIDBONE SDK - A proprietary digital software toolkit by NEXTBASE. Secure generation-execution separation architecture." />
-  <style>
-    :root{
-      --bg:#050505;
-      --panel:#0a0a0a;
-      --line:#1a1a1a;
-      --gold:#d6b25e;
-      --gold-dark:#b48b2a;
-      --text:#e0e0e0;
-      --muted:#888;
-    }
-    *{box-sizing:border-box;}
-    body{
-      margin:0; background:var(--bg); color:var(--text);
-      font-family: "Inter", system-ui, -apple-system, sans-serif;
-      line-height: 1.6;
-    }
-    .wrap{max-width:900px; margin:0 auto; padding:40px 20px;}
-    
-    /* Stripe & Trust Notice Bar */
-    .identity-bar {
-      background: linear-gradient(90deg, #111, #050505);
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 16px;
-      margin-bottom: 30px;
-      font-size: 12px;
-      color: var(--muted);
-      text-align: center;
-      letter-spacing: 0.05em;
-    }
-    .identity-bar strong { color: var(--gold); }
-
-    .hero{
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      background: radial-gradient(circle at 20% -20%, rgba(214,178,94,0.15), transparent 50%),
-                  #070707;
-      padding: 40px;
-      box-shadow: 0 30px 60px rgba(0,0,0,0.8);
-    }
-    .label{ font-size: 10px; font-weight: 900; letter-spacing: 0.3em; color: var(--gold); text-transform: uppercase; margin-bottom: 15px; display: block; }
-    h1{ font-size: 42px; margin: 0 0 10px; letter-spacing: -0.02em; color: #fff; line-height: 1.1; }
-    .sub{ font-size: 16px; color: var(--muted); margin-bottom: 35px; max-width: 600px; }
-
-    .grid{ display: grid; grid-template-columns: 1fr 320px; gap: 24px; }
-    @media (max-width: 800px){ .grid { grid-template-columns: 1fr; } }
-
-    .card{ background: #0c0c0c; border: 1px solid var(--line); border-radius: 16px; padding: 24px; }
-    .card h3{ font-size: 12px; margin: 0 0 15px; color: var(--muted); letter-spacing: 0.1em; }
-    
-    .list{ margin: 0; padding: 0; list-style: none; font-size: 14px; }
-    .list li{ margin-bottom: 12px; padding-left: 20px; position: relative; }
-    .list li::before{ content: "→"; position: absolute; left: 0; color: var(--gold); }
-
-    .price-box{ text-align: center; }
-    .price-tag{ font-size: 48px; font-weight: 900; color: #fff; margin-bottom: 5px; }
-    .price-tag span{ font-size: 14px; color: var(--muted); font-weight: 400; }
-
-    .btn{
-      display: block; width: 100%; padding: 18px;
-      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-      color: #000; font-weight: 900; text-decoration: none;
-      border-radius: 12px; text-align: center;
-      box-shadow: 0 10px 20px rgba(214,178,94,0.2);
-      transition: all 0.3s ease; margin-top: 20px;
-    }
-    .btn:hover{ transform: translateY(-3px); box-shadow: 0 15px 30px rgba(214,178,94,0.3); }
-
-    .footer-links{
-      margin-top: 40px; border-top: 1px solid var(--line); padding-top: 20px;
-      display: flex; justify-content: space-between; font-size: 12px; color: var(--muted);
-    }
-    .footer-links a { color: var(--gold); text-decoration: none; margin-right: 20px; }
-  </style>
-</head>
-<body>
-
-  <div class="wrap">
-    <div class="identity-bar">
-      NEXTBASE ONE-HA DIVISION | <strong>VOIDBONE SDK</strong> <br>
-      This is a <strong>Digital Proprietary Software Product</strong>. 
-      No physical shipment. Immediate delivery upon payment.
-    </div>
-
-    <div class="hero">
-      <span class="label">Architecture</span>
-      <h1>VOIDBONE</h1>
-      <p class="sub">A proprietary execution control SDK designed for separating generation logic from production environments.</p>
-
-      <div class="grid">
-        <div class="card">
-          <h3>PROVISIONS</h3>
-          <ul class="list">
-            <li>Digital SDK core package (Encrypted binary)</li>
-            <li>Integration Manifest & Documentation</li>
-            <li>Global Commercial Deployment License</li>
-          </ul>
-          <div style="margin-top:25px; font-size:12px; color:var(--muted); border-left: 2px solid var(--gold); padding-left: 15px;">
-            Support: <a href="mailto:info@nextbase-japan.com">info@nextbase-japan.com</a><br>
-            Format: Instant Digital Download
-          </div>
-        </div>
-
-        <div class="card price-box">
-          <h3>LICENSE FEE</h3>
-          <div class="price-tag">$3,999<br><span>USD / Full License</span></div>
-          <a href="https://8475488513970norisan.gumroad.com/l/hkrzd" class="btn">PURCHASE NOW</a>
-          <p style="font-size:10px; color:var(--muted); margin-top:15px;">Secure transaction via Gumroad / Stripe</p>
-        </div>
-      </div>
-
-      <div class="footer-links">
-        <div>
-          <a href="./tokutei.html">Commerce Disclosure (JP)</a>
-          <a href="./privacy.html">Privacy Policy</a>
-        </div>
-        <div>© 2026 NEXTBASE</div>
-      </div>
-    </div>
+<div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; align-items: start;">
+  
+  <div class="card" style="border-top: 4px solid var(--line);">
+    <div class="label">Starter Kit</div>
+    <div class="price" style="font-size: 32px;">$39 <span style="font-size: 14px; color: var(--muted);">/ Evaluation</span></div>
+    <ul class="list" style="margin-top: 20px;">
+      <li>Core SDK Binary (Limited)</li>
+      <li>Reference Documentation</li>
+      <li>Instant Digital Download</li>
+    </ul>
+    <a href="https://8475488513970norisan.gumroad.com/l/ezcosu" class="btn" style="background: #222; color: #fff; border: 1px solid var(--line);">GET STARTER</a>
   </div>
 
-</body>
-</html>
+  <div class="card" style="border: 2px solid var(--gold); background: #0c0c0c; transform: scale(1.05); box-shadow: 0 20px 40px rgba(0,0,0,0.6);">
+    <div class="label" style="color: var(--gold); font-weight: 900;">★ MOST POPULAR ★</div>
+    <div class="label">Business Edition</div>
+    <div class="price" style="font-size: 32px;">$1,999 <span style="font-size: 14px; color: var(--muted);">/ Commercial</span></div>
+    <ul class="list" style="margin-top: 20px;">
+      <li>Full SDK + Future Updates</li>
+      <li>Standard Implementation Guide</li>
+      <li>Standard Email Support</li>
+      <li>Commercial Use License</li>
+    </ul>
+    <a href="https://8475488513970norisan.gumroad.com/l/qplaz" class="btn">CHOOSE BUSINESS</a>
+  </div>
+
+  <div class="card" style="border-top: 4px solid var(--gold-dark);">
+    <div class="label">Enterprise Full</div>
+    <div class="price" style="font-size: 32px;">$3,999 <span style="font-size: 14px; color: var(--muted);">/ Priority</span></div>
+    <ul class="list" style="margin-top: 20px;">
+      <li>Full Source Access Consultation</li>
+      <li>24/7 Priority Support Channel</li>
+      <li>Architectural Review Slot</li>
+      <li>Global Commercial Rights</li>
+    </ul>
+    <a href="https://8475488513970norisan.gumroad.com/l/hkrzd" class="btn" style="background: var(--line); color: var(--text);">GO ENTERPRISE</a>
+  </div>
+
+</div>
