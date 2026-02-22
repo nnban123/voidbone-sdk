@@ -1,81 +1,167 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>VOIDBONE | NEXTBASE</title>
-  <style>
-    :root{ --bg:#050505; --panel:#0c0c0c; --line:#1a1a1a; --gold:#d6b25e; --text:#e0e0e0; --muted:#888; }
-    body{ margin:0; background:var(--bg); color:var(--text); font-family:system-ui,sans-serif; line-height:1.5; }
-    .wrap{ max-width:1000px; margin:0 auto; padding:40px 20px; }
-    .hero{ text-align:center; padding:60px 0; border-bottom:1px solid var(--line); margin-bottom:40px; }
-    h1{ font-size:48px; color:#fff; letter-spacing:-0.02em; margin:0; }
-    .grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; align-items:stretch; }
-    .card{ background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:30px; display:flex; flex-direction:column; }
-    .label{ font-size:10px; font-weight:900; color:var(--gold); letter-spacing:0.2em; text-transform:uppercase; margin-bottom:10px; }
-    .price{ font-size:36px; font-weight:900; color:#fff; margin-bottom:20px; }
-    .price span{ font-size:14px; color:var(--muted); font-weight:400; }
-    .list{ margin:0 0 30px 0; padding:0; list-style:none; flex-grow:1; }
-    .list li{ font-size:13px; color:var(--text); margin-bottom:10px; padding-left:18px; position:relative; }
-    .list li::before{ content:"→"; position:absolute; left:0; color:var(--gold); }
-    .btn{ display:block; width:100%; padding:15px; background:var(--gold); color:#000; text-align:center; text-decoration:none; font-weight:900; border-radius:8px; transition:0.2s; }
-    .btn:hover{ opacity:0.8; transform:translateY(-2px); }
-    .footer{ margin-top:60px; text-align:center; font-size:12px; color:var(--muted); }
-    .footer a{ color:var(--gold); text-decoration:none; margin:0 10px; }
-    .featured{ border:2px solid var(--gold); transform:scale(1.05); z-index:10; background:#0f0f0f; box-shadow: 0 0 30px rgba(214,178,94,0.15); }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXT BASE | Precision Intelligence</title>
+    <style>
+        :root {
+            --bg-color: #000000;
+            --gold-color: #D4AF37;
+            --text-color: #ffffff;
+            --accent-gray: #1a1a1a;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            letter-spacing: 0.05em;
+        }
+
+        header {
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 1px solid var(--gold-color);
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 200;
+            color: var(--gold-color);
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            margin: 0;
+        }
+
+        .tagline {
+            font-size: 0.9rem;
+            color: var(--gold-color);
+            opacity: 0.8;
+            margin-top: 10px;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        section {
+            margin-bottom: 120px;
+            border-left: 2px solid var(--gold-color);
+            padding-left: 30px;
+        }
+
+        h2 {
+            color: var(--gold-color);
+            font-size: 1.8rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+
+        .product-card {
+            background-color: var(--accent-gray);
+            padding: 40px;
+            border-radius: 4px;
+            margin-bottom: 40px;
+        }
+
+        .product-title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .product-desc {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .status-tag {
+            display: inline-block;
+            border: 1px solid var(--gold-color);
+            color: var(--gold-color);
+            padding: 4px 12px;
+            font-size: 0.75rem;
+            margin-top: 20px;
+            text-transform: uppercase;
+        }
+
+        .link-area {
+            margin-top: 60px;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        a {
+            color: var(--gold-color);
+            text-decoration: none;
+            margin: 0 15px;
+            transition: opacity 0.3s;
+        }
+
+        a:hover {
+            opacity: 0.6;
+        }
+
+        footer {
+            padding: 60px 20px;
+            text-align: center;
+            font-size: 0.75rem;
+            opacity: 0.5;
+            border-top: 1px solid var(--accent-gray);
+        }
+
+        .reference-link {
+            display: block;
+            margin-top: 20px;
+            font-style: normal;
+        }
+    </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="hero">
-      <div class="label">NEXTBASE ONE-HA</div>
-      <h1>VOIDBONE SDK</h1>
-      <p style="color:var(--muted); margin-top:10px;">Proprietary separation of logic and execution.</p>
+
+<header>
+    <h1 class="logo">NEXT BASE</h1>
+    <p class="tagline">Precision Intelligence. Zero Hallucination.</p>
+</header>
+
+<main>
+    <section>
+        <h2>INTELLIGENCE</h2>
+        <div class="product-card">
+            <div class="product-title">GLB -Void-</div>
+            <p class="product-desc">言語から思想とノイズを濾過し、純粋な事実（Fact）のみを抽出する言語変換エンジン。9言語に対応し、情報の「ズレ」を物理的に補正します。</p>
+            <span class="status-tag">App Store Deployment</span>
+        </div>
+    </section>
+
+    <section>
+        <h2>SETTLEMENT</h2>
+        <div class="product-card">
+            <div class="product-title">ゴルフ麻雀精算君</div>
+            <p class="product-desc">娯楽における複雑な精算から「計算のズレ」と「感情のノイズ」を排除。1円、1打の狂いもない高精度な即時精算を提供します。</p>
+            <span class="status-tag">Precision Engine Active</span>
+        </div>
+    </section>
+
+    <div class="link-area">
+        <a href="https://nnban123.github.io/voidbone-reference/">Technical Reference</a>
     </div>
+</main>
 
-    <div class="grid">
-      <div class="card">
-        <div class="label">Starter Kit</div>
-        <div class="price">$39 <span>/ Eval</span></div>
-        <ul class="list">
-          <li>Core SDK Binary (Evaluation)</li>
-          <li>Reference Documentation</li>
-          <li>Instant Digital Download</li>
-        </ul>
-        <a href="https://8475488513970norisan.gumroad.com/l/ezcosu" class="btn" style="background:#222; color:#fff;">GET STARTER</a>
-      </div>
+<footer>
+    <p>
+        <a href="https://www.nextbaseone-ha.com/tokutei.html">特定商取引法に基づく表記</a> | 
+        <a href="https://www.nextbaseone-ha.com/privacy.html">プライバシーポリシー</a>
+    </p>
+    <p>© 2026 NEXT BASE. All Rights Reserved.</p>
+    <small class="reference-link">Based on NE System | Patent Pending (JP 2026-016843)</small>
+</footer>
 
-      <div class="card featured">
-        <div class="label">★ MOST POPULAR / ANDROID STORE</div>
-        <div class="label">Business Edition</div>
-        <div class="price">$1,999 <span>/ Release Build</span></div>
-        <ul class="list">
-          <li><strong>20-Day Launch Protection</strong></li>
-          <li>SHA-256 & AppID Integrity Check</li>
-          <li>Silent Resolve Architecture</li>
-          <li>Commercial Use License</li>
-        </ul>
-        <a href="https://8475488513970norisan.gumroad.com/l/qplaz" class="btn">ACTIVATE GATEWAY</a>
-      </div>
-
-      <div class="card">
-        <div class="label">Enterprise</div>
-        <div class="price">$3,999 <span>/ Priority</span></div>
-        <ul class="list">
-          <li>Full Source Access Consultation</li>
-          <li>24/7 Priority Support</li>
-          <li>Architectural Review Slot</li>
-          <li>Global Commercial Rights</li>
-        </ul>
-        <a href="https://8475488513970norisan.gumroad.com/l/hkrzd" class="btn" style="background:#222; color:#fff;">GO ENTERPRISE</a>
-      </div>
-    </div>
-
-    <div class="footer">
-      <a href="./tokutei.html">Commerce Disclosure</a>
-      <a href="./privacy.html">Privacy Policy</a>
-      <p style="margin-top:20px;">© 2026 NEXTBASE</p>
-    </div>
-  </div>
 </body>
 </html>
