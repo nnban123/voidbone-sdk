@@ -3,165 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXT BASE | Precision Intelligence</title>
+    <title>GLB -Void- Official</title>
     <style>
-        :root {
-            --bg-color: #000000;
-            --gold-color: #D4AF37;
-            --text-color: #ffffff;
-            --accent-gray: #1a1a1a;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            letter-spacing: 0.05em;
-        }
-
-        header {
-            padding: 60px 20px;
-            text-align: center;
-            border-bottom: 1px solid var(--gold-color);
-        }
-
-        .logo {
-            font-size: 2.5rem;
-            font-weight: 200;
-            color: var(--gold-color);
-            text-transform: uppercase;
-            letter-spacing: 0.3em;
-            margin: 0;
-        }
-
-        .tagline {
-            font-size: 0.9rem;
-            color: var(--gold-color);
-            opacity: 0.8;
-            margin-top: 10px;
-        }
-
-        main {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 80px 20px;
-        }
-
-        section {
-            margin-bottom: 120px;
-            border-left: 2px solid var(--gold-color);
-            padding-left: 30px;
-        }
-
-        h2 {
-            color: var(--gold-color);
-            font-size: 1.8rem;
-            font-weight: 300;
-            margin-bottom: 30px;
-        }
-
-        .product-card {
-            background-color: var(--accent-gray);
-            padding: 40px;
-            border-radius: 4px;
-            margin-bottom: 40px;
-        }
-
-        .product-title {
-            font-size: 1.4rem;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-
-        .product-desc {
-            font-size: 1rem;
-            opacity: 0.9;
-        }
-
-        .status-tag {
-            display: inline-block;
-            border: 1px solid var(--gold-color);
-            color: var(--gold-color);
-            padding: 4px 12px;
-            font-size: 0.75rem;
-            margin-top: 20px;
-            text-transform: uppercase;
-        }
-
-        .link-area {
-            margin-top: 60px;
-            text-align: center;
-            font-size: 0.85rem;
-        }
-
-        a {
-            color: var(--gold-color);
-            text-decoration: none;
-            margin: 0 15px;
-            transition: opacity 0.3s;
-        }
-
-        a:hover {
-            opacity: 0.6;
-        }
-
-        footer {
-            padding: 60px 20px;
-            text-align: center;
-            font-size: 0.75rem;
-            opacity: 0.5;
-            border-top: 1px solid var(--accent-gray);
-        }
-
-        .reference-link {
-            display: block;
-            margin-top: 20px;
-            font-style: normal;
-        }
+        body { background-color: #000; color: #d4af37; font-family: sans-serif; margin: 0; padding: 0; text-align: center; }
+        .container { max-width: 900px; margin: 0 auto; padding: 50px 20px; }
+        h1 { font-size: 2.5em; border-bottom: 2px solid #d4af37; padding-bottom: 10px; margin-bottom: 30px; }
+        p { color: #fff; line-height: 1.6; }
+        .pricing-table { display: flex; justify-content: center; gap: 20px; margin-top: 40px; flex-wrap: wrap; }
+        .card { border: 1px solid #d4af37; padding: 20px; width: 280px; background: #111; transition: 0.3s; }
+        .card:hover { background: #1a1a1a; }
+        .price { font-size: 1.5em; margin: 10px 0; font-weight: bold; }
+        .button { display: inline-block; background-color: #d4af37; color: #000; padding: 15px 30px; text-decoration: none; font-weight: bold; margin-top: 20px; border-radius: 5px; }
+        
+        .legal-section { margin-top: 80px; text-align: left; font-size: 0.85em; color: #ccc; border-top: 1px solid #333; padding-top: 40px; }
+        .legal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        @media (max-width: 768px) { .legal-grid { grid-template-columns: 1fr; } }
+        .legal-box h2 { font-size: 1.2em; color: #d4af37; border-left: 3px solid #d4af37; padding-left: 10px; margin-bottom: 20px; }
+        .legal-box h3 { font-size: 1em; color: #d4af37; margin-top: 15px; }
+        
+        .external-links { margin-top: 40px; text-align: center; border-top: 1px dotted #333; padding-top: 20px; }
+        .external-links a { color: #d4af37; text-decoration: none; margin: 0 15px; font-size: 0.9em; }
+        .external-links a:hover { text-decoration: underline; }
+        .footer-note { text-align: center; margin-top: 30px; color: #666; font-size: 0.8em; }
     </style>
 </head>
 <body>
-
-<header>
-    <h1 class="logo">NEXT BASE</h1>
-    <p class="tagline">Precision Intelligence. Zero Hallucination.</p>
-</header>
-
-<main>
-    <section>
-        <h2>INTELLIGENCE</h2>
-        <div class="product-card">
-            <div class="product-title">GLB -Void-</div>
-            <p class="product-desc">言語から思想とノイズを濾過し、純粋な事実（Fact）のみを抽出する言語変換エンジン。9言語に対応し、情報の「ズレ」を物理的に補正します。</p>
-            <span class="status-tag">App Store Deployment</span>
+    <div class="container">
+        <h1>GLB -Void-</h1>
+        <p>言語情報からノイズを抽出し、事実（Fact）のみを抽出するオンデバイス・フィルタリング・エンジン。</p>
+        
+        <div class="pricing-table">
+            <div class="card">
+                <h2>Standard</h2>
+                <div class="price">$1.99 / 月</div>
+                <p>基本フィルタリング機能<br>個人利用向け</p>
+                <a href="https://buy.stripe.com/dRm3cx7Rj8KA0B1gyHasg01" class="button">申し込む</a>
+            </div>
+            <div class="card">
+                <h2>High-tier</h2>
+                <div class="price">$7.99 / 月</div>
+                <p>多言語（9言語）対応<br>高度な精算ロジック連携</p>
+                <a href="https://buy.stripe.com/cNi8wR8Vn8KA4Rh82basg02" class="button">申し込む</a>
+            </div>
         </div>
-    </section>
 
-    <section>
-        <h2>SETTLEMENT</h2>
-        <div class="product-card">
-            <div class="product-title">ゴルフ麻雀精算君</div>
-            <p class="product-desc">娯楽における複雑な精算から「計算のズレ」と「感情のノイズ」を排除。1円、1打の狂いもない高精度な即時精算を提供します。</p>
-            <span class="status-tag">Precision Engine Active</span>
+        <div class="legal-section">
+            <div class="legal-grid">
+                <div class="legal-box">
+                    <h2>利用規約 (ToS)</h2>
+                    <h3>第1条（適用）</h3><p>NEXT BASEが提供するGLB -Void-の利用条件を定めるものです。</p>
+                    <h3>第2条（支払い）</h3><p>料金はStripeを通じて月額制で決済されます。登録時点から課金が開始されます。</p>
+                    <h3>第3条（キャンセル）</h3><p>Stripeカスタマーポータルよりいつでも可能です。請求期間終了時に適用されます。</p>
+                    <h3>第4条（返金）</h3><p>デジタルコンテンツの性質上、原則として返金は行いません（法令に基づく場合を除く）。</p>
+                </div>
+                <div class="legal-box" style="display: flex; flex-direction: column; justify-content: center;">
+                    <p>詳細は以下のリンクより各規定をご確認ください。</p>
+                </div>
+            </div>
         </div>
-    </section>
 
-    <div class="link-area">
-        <a href="https://nnban123.github.io/voidbone-reference/">Technical Reference</a>
+        <div class="external-links">
+            <a href="https://www.nextbaseone-ha.com/tokutei.html" target="_blank">特定商取引法に基づく表記</a>
+            <a href="https://www.nextbaseone-ha.com/privacy.html" target="_blank">プライバシーポリシー</a>
+        </div>
+
+        <p class="footer-note">© 2026 NEXT BASE. All Rights Reserved.</p>
     </div>
-</main>
-
-<footer>
-    <p>
-        <a href="https://www.nextbaseone-ha.com/tokutei.html">特定商取引法に基づく表記</a> | 
-        <a href="https://www.nextbaseone-ha.com/privacy.html">プライバシーポリシー</a>
-    </p>
-    <p>© 2026 NEXT BASE. All Rights Reserved.</p>
-    <small class="reference-link">Based on NE System | Patent Pending (JP 2026-016843)</small>
-</footer>
-
 </body>
 </html>
