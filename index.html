@@ -5,18 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>GLB - Global Language Breaker</title>
     <style>
-        body { margin: 0; padding: 0; background: #000; overflow: hidden; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #fff; }
-        #gate-video { position: fixed; right: 0; bottom: 0; min-width: 100%; min-height: 100%; width: auto; height: auto; z-style: -100; display: none; }
-        #poster-image { position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-style: 100; cursor: pointer; }
-        #skip-btn { position: fixed; top: 20px; right: 20px; width: 40px; height: 40px; background: rgba(0,0,0,0.3); border: 1px solid rgba(212,175,55,0.5); color: rgba(212,175,55,0.7); border-radius: 50%; display: none; justify-content: center; align-items: center; z-style: 1000; cursor: pointer; font-size: 10px; backdrop-filter: blur(5px); }
-        
-        #main-ui { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-style: -10; display: flex; flex-direction: column; justify-content: center; align-items: center; }
-        .breaker-btn { width: 150px; height: 150px; background: url('icon.png') no-repeat center center; background-size: contain; filter: drop-shadow(0 0 10px rgba(212,175,55,0.5)); cursor: pointer; transition: transform 0.1s, filter 0.3s; }
-        .breaker-btn:active { transform: scale(0.95); filter: drop-shadow(0 0 20px rgba(212,175,55,1)); }
-        .status { margin-top: 20px; color: rgba(212,175,55,0.8); font-size: 14px; letter-spacing: 2px; }
-    </style>
-</head>
+    /* 🚨 レイヤーの再定義 🚨 */
+    #gate-video { z-index: 100; position: fixed; width: 100%; height: 100%; object-fit: cover; background: #000; }
+    #skip-btn { z-index: 200; position: fixed; top: 30px; right: 30px; padding: 10px 20px; border: 1px solid #D4AF37; color: #D4AF37; display: none; cursor: pointer; }
+    
+    /* メインUIは最初は「奥」に隠し、触らせない */
+    #main-ui { z-index: 1; position: fixed; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; pointer-events: none; opacity: 0; transition: opacity 0.5s; }
+    
+    /* 覚醒状態 */
+    #main-ui.active { z-index: 300; pointer-events: auto; opacity: 1; }
+</style>
+
 <body>
+    <video id="gate-video" poster="poster.png" playsinline>
+        <source src="door.mp4" type="video/mp4">
+    </video>
+    <div id="skip-btn" onclick="breaker()">SKIP</div>
+
+    <div id="main-ui">
+        <div class="breaker-btn" onclick="activateStripe()"></div>
+        <div class="status" style="color:#D4AF37; margin-top:20px;">READY</div>
+    </div>
+
+    <script>
+        const video = document.getElementById('gate-video');
+        const skipBtn = document.getElementById('skip-btn');
+        const mainUI = document.getElementById('main-ui');
+
+        // 1. 画面タップで動画開始 & SKIP表示
+        document.body.onclick = function() {
+            if (video.paused) {
+                video.play();
+                skipBtn.style.display = 'block';
+            }
+        };
+
+        // 2. 動画終了またはSKIPでUI覚醒
+        video.onended = breaker;
+
+        function breaker() {
+            video.style.display = 'none';
+            skipBtn.style.display = 'none';
+            mainUI.classList.add('active'); // 黄金の紋章を「触れる状態」にする
+            if (navigator.vibrate) navigator.vibrate(50);
+        }
+
+        function activateStripe() {
+            // 小さい紋章を押した瞬間に Stripe へ射出
+            window.location.href = "https://buy.stripe.com/bJedRbefH5yogzZfuDasg09";
+        }
+    </script>
+</body>
+
 
     <img src="poster.png" id="poster-image" onclick="openGate()">
     <video id="gate-video" preload="auto">
