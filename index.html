@@ -1,78 +1,86 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>GLB</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>NEXTBASE GLB</title>
     <style>
-        /* 🚨 物理的な揺れを一切許さない固定設定 🚨 */
-        html, body {
-            margin: 0; padding: 0;
-            width: 100%; height: 100dvh; /* 動的ビューポートでツールバー干渉を回避 */
-            background: #000; overflow: hidden;
-            display: flex; align-items: center; justify-content: center;
-            position: fixed; /* スクロールを物理的に禁止 */
-        }
-
-        /* 🚨 自動調整の核心 🚨 */
-        #gate-video {
-            width: 100%; height: 100%;
-            max-width: 100vw; max-height: 100dvh;
-            /* 🚨 比率を維持し、画面内に必ず収める（無を許容） 🚨 */
-            object-fit: contain; 
-            z-index: 500;
-        }
-
-        /* アプリUI：動画が終わった後に浮かび上がる */
-        #main-ui {
-            position: fixed; top: 0; left: 0;
-            width: 100vw; height: 100dvh;
-            z-index: 600; opacity: 0; pointer-events: none;
-            display: flex; flex-direction: column; align-items: center; justify-content: space-around;
-            padding: env(safe-area-inset-top) 20px env(safe-area-inset-bottom) 20px;
-            box-sizing: border-box; background: #000;
-        }
-        #main-ui.active { opacity: 1; pointer-events: auto; }
-
-        .breaker-btn { width: 100px; height: 100px; background: url('icon_s.png') no-repeat center center; background-size: contain; flex-shrink: 0; }
-        .lang-select { background: #000; border: 1px solid #D4AF37; color: #D4AF37; padding: 10px; border-radius: 5px; width: 110px; text-align: center; font-size: 16px; }
+        body, html { margin: 0; padding: 0; width: 100%; height: 100%; background: #000; color: #fff; font-family: sans-serif; overflow: hidden; }
+        /* Scene 1: Video */
+        #video-gate { position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 100; }
+        /* Scene 2 & 3: UI */
+        #main-ui { display: none; flex-direction: column; align-items:center; justify-content: space-between; height: 100vh; padding: 40px 20px; box-sizing: border-box; text-align: center; opacity: 0; transition: 2s; }
+        .logo-btn { width: 180px; height: 180px; background: url('icon.png') no-repeat center; background-size: contain; cursor: pointer; filter: drop-shadow(0 0 15px rgba(255,204,0,0.5)); margin-top: 50px; }
+        .status-ready { color: #ffcc00; letter-spacing: 8px; font-size: 1.2rem; margin-top: 20px; font-weight: 900; }
+        
+        /* Dashboard Container */
+        #settings-panel { display: none; width: 100%; max-width: 500px; background: rgba(10,10,10,0.95); border: 1px solid #222; padding: 30px; box-sizing: border-box; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 50; }
+        .btn-group { display: flex; flex-direction: column; gap: 15px; width: 100%; }
+        .action-btn { background: #ffcc00; color: #000; padding: 20px; font-weight: 900; border: none; letter-spacing: 2px; cursor: pointer; text-transform: uppercase; }
+        .buy-btn { background: #fff; color: #000; font-size: 1.2rem; }
+        
+        /* Policy Links (The 4 Shields) */
+        .footer-nav { display: flex; flex-direction: column; gap: 10px; font-size: 0.7rem; letter-spacing: 2px; margin-top: 30px; }
+        .footer-nav a { color: #555; text-decoration: none; text-transform: uppercase; }
+        .desc { color: #888; font-size: 0.8rem; line-height: 1.6; margin: 20px 0; }
+        .close-btn { position: absolute; top: 10px; right: 15px; font-size: 1.5rem; color: #ffcc00; cursor: pointer; }
     </style>
 </head>
+<body>
 
-<body onclick="terminateGate()">
-
-    <video id="gate-video" autoplay muted playsinline loop>
+    <video id="video-gate" autoplay muted playsinline>
         <source src="door.mp4" type="video/mp4">
     </video>
 
     <div id="main-ui">
-        <div style="width: 100%; max-width: 320px; font-size: 13px; color: #fff; line-height: 1.6; text-align: left; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 8px;">
-            <b>[NB_001_PROTO]</b><br>
-            Google API 2026/4/1 制限対応。15万語の核知能。2.99ドルの実弾で、高精度翻訳を解放。
+        <div style="width: 100%; text-align: right;">
+            <span onclick="toggleSettings()" style="cursor:pointer; color:#444; letter-spacing:2px; font-size:0.8rem;">[ SETTINGS ]</span>
+        </div>
+        
+        <div style="display:flex; flex-direction:column; align-items:center;">
+            <div class="logo-btn" onclick="goToEngine()"></div>
+            <div class="status-ready">READY</div>
+            <div style="color:#222; font-size:0.6rem; letter-spacing:5px; margin-top:10px;">GLOBAL LANGUAGE BREAKER</div>
         </div>
 
-        <div style="display:flex; gap:10px;">
-            <select class="lang-select"><option>日本語</option><option>English</option></select>
-            <select class="lang-select"><option>English</option><option>日本語</option></select>
-        </div>
+        <div style="color:#111; letter-spacing:10px; font-size:0.7rem;">SMILE / FRIEND</div>
+    </div>
 
-        <div class="breaker-btn" onclick="goToStripe(event)"></div>
-        <div style="font-size:9px; opacity:0.3; letter-spacing:3px;">VOIDBONE // GLB</div>
+    <div id="settings-panel">
+        <span class="close-btn" onclick="toggleSettings()">×</span>
+        <div class="btn-group">
+            <div class="desc">Global Language Breaker. Standard terminal engine integration. Optimized by NEXTBASE.</div>
+            <button class="action-btn" onclick="alert('Language: Global/Auto')">LANGUAGE: AUTO</button>
+            <button class="action-btn" onclick="goToEngine()">OPEN ENGINE</button>
+            <button class="action-btn buy-btn" onclick="alert('Proceed to Checkout: $2.99')">BUY ACCESS ($2.99)</button>
+            
+            <div class="footer-nav">
+                <a href="legal.html">Legal Notice</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="support.html">Support</a>
+            </div>
+        </div>
     </div>
 
     <script>
-        const video = document.getElementById('gate-video');
-        const mainUI = document.getElementById('main-ui');
+        const video = document.getElementById('video-gate');
+        const ui = document.getElementById('main-ui');
+        const settings = document.getElementById('settings-panel');
 
-        function terminateGate() {
+        video.onended = function() {
             video.style.display = 'none';
-            mainUI.classList.add('active');
-            if (navigator.vibrate) navigator.vibrate(50);
+            ui.style.display = 'flex';
+            setTimeout(() => { ui.style.opacity = '1'; }, 100);
+        };
+
+        function toggleSettings() {
+            settings.style.display = (settings.style.display === 'block') ? 'none' : 'block';
         }
 
-        function goToStripe(e) {
-            e.stopPropagation();
-            window.location.href = "https://buy.stripe.com/bJedRbefH5yogzZfuDasg09";
+        function goToEngine() {
+            // 司令、ここから別リポジトリ(glb-noir)等の翻訳エンジンへ飛ばす
+            window.location.href = "https://nnban123.github.io/glb-noir/";
         }
     </script>
 </body>
