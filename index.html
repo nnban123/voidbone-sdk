@@ -4,36 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>GLB</title>
-    <style>
-        /* 🚨 全画面・スクロール禁止 🚨 */
-        * { box-sizing: border-box; }
-        body, html { 
-            margin: 0; padding: 0; width: 100%; height: 100%; 
-            background: #000; overflow: hidden; position: fixed;
-        }
+   <style>
+    /* 🚨 「無」を最小化し、「門」を最大化する微調整 🚨 */
+    html, body {
+        margin: 0; padding: 0;
+        width: 100%; height: 100%;
+        background: #000; overflow: hidden;
+        display: flex; align-items: center; justify-content: center;
+    }
 
-        /* 🚨 どんな比率でも画面を埋め尽くす 🚨 */
-        #gate-video { 
-            position: absolute; top: 0; left: 0;
-            width: 100vw; height: 100vh;
-            object-fit: cover; /* 隙間を許さない */
-            z-index: 500;
-        }
-        
-        /* アプリUI：セーフエリアを考慮した配置 */
-        #main-ui { 
-            position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; 
-            z-index: 600; opacity: 0; pointer-events: none; 
-            display: flex; flex-direction: column; align-items: center; 
-            justify-content: space-around; 
-            padding: env(safe-area-inset-top) 20px env(safe-area-inset-bottom) 20px;
-            background: #000; transition: opacity 0.4s ease;
-        }
-        #main-ui.active { opacity: 1; pointer-events: auto; }
+    #gate-video {
+        width: 100vw;  /* 横幅は画面いっぱいに */
+        height: 100vh; /* 縦幅も画面いっぱいに */
+        /* 🚨 object-fit を contain から cover へ 🚨 */
+        object-fit: cover; /* 🚨 比率を守りつつ、画面を埋め尽くす（トリミング許容） 🚨 */
+        object-position: center; /* 中央を死守 */
+        z-index: 500;
+    }
 
-        .breaker-btn { width: 110px; height: 110px; background: url('icon_s.png') no-repeat center center; background-size: contain; flex-shrink: 0; }
-        .lang-select { background: #000; border: 1px solid #D4AF37; color: #D4AF37; padding: 12px; border-radius: 6px; font-size: 16px; width: 120px; text-align: center; }
-    </style>
+    /* アプリUI：セーフエリアを考慮し、かつ中央に固定 */
+    #main-ui {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100vw; height: 100vh;
+        z-index: 600; opacity: 0; pointer-events: none;
+        display: flex; flex-direction: column; align-items: center; justify-content: space-around;
+        padding: 60px 0; box-sizing: border-box;
+    }
+    #main-ui.active { opacity: 1; pointer-events: auto; background: #000; }
+</style>
+
 </head>
 
 <body onclick="terminateGate()">
