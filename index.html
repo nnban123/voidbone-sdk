@@ -11,10 +11,8 @@
         /* Scene 1: Video Gate */
         #video-gate { position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 100; cursor: pointer; transition: 0.8s; }
 
-        /* Central Layout Engine */
-        .stage { position: relative; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 10; opacity: 0; transition: 1.5s; }
-        
         /* Scene 2: Central Hub */
+        .stage { position: relative; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 10; opacity: 0; transition: 1.5s; display: none; }
         .logo-trigger { width: 50vw; max-width: 240px; aspect-ratio: 1/1; background: url('icon.png') no-repeat center; background-size: contain; cursor: pointer; filter: drop-shadow(0 0 30px rgba(255,204,0,0.3)); transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .logo-trigger:active { transform: scale(0.92); }
         .ready-text { color: #ffcc00; letter-spacing: 12px; font-size: 1.4rem; margin-top: 30px; font-weight: 900; text-indent: 12px; }
@@ -22,15 +20,18 @@
 
         /* Scene 3: Dashboard (Overlay) */
         #dashboard { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.98); z-index: 200; padding: 40px 20px; flex-direction: column; align-items: center; justify-content: center; }
-        .menu-frame { width: 100%; max-width: 400px; display: flex; flex-direction: column; gap: 12px; }
-        .label { color: #ffcc00; font-size: 0.7rem; letter-spacing: 6px; margin-bottom: 10px; text-align: center; font-weight: 900; }
+        .menu-frame { width: 100%; max-width: 400px; display: flex; flex-direction: column; gap: 12px; text-align: center; }
+        .label { color: #ffcc00; font-size: 0.7rem; letter-spacing: 6px; margin-bottom: 10px; font-weight: 900; }
         
+        /* Usage Counter */
+        #usage-info { color: #444; font-size: 0.6rem; letter-spacing: 2px; margin-bottom: 10px; text-transform: uppercase; }
+
         .m-btn { background: #ffcc00; color: #000; padding: 22px; font-weight: 900; border: none; letter-spacing: 4px; cursor: pointer; text-transform: uppercase; font-size: 0.95rem; transition: 0.2s; }
         .m-btn:active { opacity: 0.7; }
         .m-btn.white { background: #fff; border: 2px solid #ffcc00; }
 
         /* Language Select */
-        #lang-select { background: #000; border: 1px solid #333; color: #fff; padding: 15px; font-size: 0.9rem; letter-spacing: 2px; outline: none; margin-bottom: 10px; border-radius: 0; appearance: none; text-align-last: center; }
+        #lang-select { background: #000; border: 1px solid #333; color: #fff; padding: 15px; font-size: 0.9rem; letter-spacing: 2px; outline: none; margin-bottom: 10px; border-radius: 0; appearance: none; text-align-last: center; width: 100%; }
 
         /* Bottom Shields */
         .shields { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 40px; }
@@ -57,6 +58,7 @@
     <div id="dashboard">
         <div class="menu-frame">
             <div class="label">DASHBOARD</div>
+            <div id="usage-info">FREE ACCESS: <span id="count-num">3</span>/3 LEFT</div>
             
             <select id="lang-select">
                 <option value="auto">LANGUAGE: AUTO DETECT</option>
@@ -67,24 +69,37 @@
                 <option value="jp-en">JAPANESE / ENGLISH</option>
             </select>
 
-            <button class="m-btn" onclick="location.href='https://nextbase-one-ha.github.io/noir/'">OPEN BREAKER</button>
-            <button class="m-btn white" onclick="alert('Access: $2.99')">ACTIVATE ($2.99)</button>
+            <button class="m-btn" id="open-btn" onclick="launchBreaker()">OPEN BREAKER</button>
+            <button class="m-btn white" onclick="alert('Proceed to Activation: $2.99')">ACTIVATE ($2.99)</button>
             
             <div class="shields">
-                <a href="legal.html">Legal</a>
-                <a href="terms.html">Terms</a>
-                <a href="privacy.html">Privacy</a>
                 <a href="support.html">Support</a>
+                <a href="privacy.html">Privacy</a>
+                <a href="terms.html">Terms</a>
+                <a href="legal.html">Legal</a>
             </div>
             
             <div class="close-hub" onclick="closeDash()">[ CLOSE ]</div>
-        <で/div>
+        </div>
     </div>
 
     <script>
         const v = document.getElementById('video-gate');
         const h = document.getElementById('hub');
         const d = document.getElementById('dashboard');
+        const countDisplay = document.getElementById('count-num');
+
+        // Usage Logic
+        let usage = localStorage.getItem('glb_usage') ? parseInt(localStorage.getItem('glb_usage')) : 0;
+        let isPaid = localStorage.getItem('glb_paid') === 'true';
+
+        function updateUI() {
+            if (isPaid) {
+                document.getElementById('usage-info').innerText = "FULL ACCESS ACTIVE";
+            } else {
+                countDisplay.innerText = Math.max(0, 3 - usage);
+            }
+        }
 
         function enter() {
             v.style.opacity = '0';
@@ -96,8 +111,23 @@
         }
 
         v.onended = enter;
-        function openDash() { d.style.display = 'flex'; }
+        function openDash() { updateUI(); d.style.display = 'flex'; }
         function closeDash() { d.style.display = 'none'; }
+
+        function launchBreaker() {
+            if (!isPaid && usage >= 3) {
+                alert("Trial ended. Please activate Full Access.");
+                return;
+            }
+            // カウントを増やす
+            if (!isPaid) {
+                usage++;
+                localStorage.setItem('glb_usage', usage);
+            }
+            location.href = 'https://nextbase-one-ha.github.io/noir/';
+        }
+
+        updateUI();
     </script>
 </body>
 </html>
