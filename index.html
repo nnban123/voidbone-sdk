@@ -5,78 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>GLB</title>
     <style>
-        /* 背景は常に漆黒 */
         body { margin: 0; padding: 0; background: #000; overflow: hidden; font-family: -apple-system, sans-serif; color: #D4AF37; }
         
-        /* 動画：最初は非表示。タップで出現 */
-        #gate-video { position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 500; display: none; }
+        /* 🚨 自動再生ビデオ 🚨 */
+        #gate-video { position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 500; }
         
-        #skip-btn { position: fixed; top: 20px; right: 20px; z-index: 600; padding: 10px 20px; border: 1px solid #D4AF37; color: #D4AF37; cursor: pointer; background: rgba(0,0,0,0.5); display: none; border-radius: 5px; font-size: 12px; }
-
-        /* アプリUI：動画が終わるまで z-index で隠す */
         #main-ui { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 100; opacity: 0; pointer-events: none; display: flex; flex-direction: column; align-items: center; justify-content: space-around; padding: 40px 0; box-sizing: border-box; }
-        #main-ui.active { opacity: 1; pointer-events: auto; }
+        #main-ui.active { opacity: 1; pointer-events: auto; z-index: 600; background: #000; }
 
-        /* 小さい紋章 (STRIPE TRIGGER) */
-        .breaker-btn { width: 110px; height: 110px; background: url('icon_s.png') no-repeat center center; background-size: contain; cursor: pointer; }
-        
-        /* 言語設定・説明 */
-        .lang-setup { display: flex; gap: 15px; align-items: center; }
-        .lang-select { background: #000; border: 1px solid #D4AF37; color: #D4AF37; padding: 8px; border-radius: 4px; font-size: 16px; min-width: 110px; }
+        .breaker-btn { width: 120px; height: 120px; background: url('icon_s.png') no-repeat center center; background-size: contain; cursor: pointer; }
+        .lang-select { background: #000; border: 1px solid #D4AF37; color: #D4AF37; padding: 10px; border-radius: 4px; font-size: 16px; }
         #info-text { width: 85%; max-width: 340px; font-size: 13px; color: #fff; line-height: 1.6; text-align: left; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 8px; }
     </style>
 </head>
-<body onclick="ignition()">
 
-    <video id="gate-video" playsinline muted>
+<body onclick="terminateGate()">
+
+    <video id="gate-video" autoplay muted playsinline loop>
         <source src="door.mp4" type="video/mp4">
     </video>
-    <div id="skip-btn" onclick="terminateGate(event)">SKIP</div>
 
     <div id="main-ui">
         <div id="info-text">
             <b>[NB_001_PROTO: SMILE FRIEND]</b><br>
-            Google API ティア制（2026/4/1適用）を突破する、15万語の核知能。2.99ドルの実弾で、高精度な翻訳と 0円 API ロジックを連結します。
+            2026/4/1適用の Google API 制限を無効化する 15万語の核知能。2.99ドルの実弾で、高精度翻訳を解放します。
         </div>
 
-        <div class="lang-setup">
+        <div style="display:flex; gap:10px;">
             <select class="lang-select"><option>日本語</option><option>English</option></select>
-            <span style="font-size:12px; opacity:0.5;">→</span>
             <select class="lang-select"><option>English</option><option>日本語</option></select>
         </div>
 
-        <div class="breaker-btn" onclick="goToStripe()"></div>
+        <div class="breaker-btn" onclick="goToStripe(event)"></div>
         
-        <div style="font-size:10px; opacity:0.3; letter-spacing:4px;">VOIDBONE // GLOBAL_LANGUAGE_BREAKER</div>
+        <div style="font-size:10px; opacity:0.3; letter-spacing:4px;">VOIDBONE // GLB</div>
     </div>
 
     <script>
         const video = document.getElementById('gate-video');
-        const skipBtn = document.getElementById('skip-btn');
         const mainUI = document.getElementById('main-ui');
 
-        function ignition() {
-            if (video.style.display !== 'block') {
-                video.style.display = 'block';
-                video.play().then(() => {
-                    skipBtn.style.display = 'block';
-                }).catch(() => terminateGate());
-            }
-        }
-
-        video.onended = terminateGate;
-
-        function terminateGate(e) {
-            if(e) e.stopPropagation();
+        // 動画終了（loopを外した場合）またはクリックでUIへ
+        function terminateGate() {
             video.style.display = 'none';
-            skipBtn.style.display = 'none';
             mainUI.classList.add('active');
             if (navigator.vibrate) navigator.vibrate(50);
         }
 
-        function goToStripe() {
+        function goToStripe(e) {
+            e.stopPropagation(); // terminateGateの着火を防ぐ
             window.location.href = "https://buy.stripe.com/bJedRbefH5yogzZfuDasg09";
         }
+
+        // 自動再生がブラウザに阻止された場合の保険：1秒後に強制チェック
+        setTimeout(() => {
+            if (video.paused) {
+                console.log("Autoplay blocked. Waiting for click.");
+            }
+        }, 1000);
     </script>
 </body>
 </html>
