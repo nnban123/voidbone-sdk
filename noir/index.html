@@ -6,38 +6,48 @@
     <title>GLOBAL LANGUAGE BREAKER</title>
     <style>
         body { background-color: #000; color: #FFD700; font-family: 'Courier New', monospace; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; }
-        .title { font-size: 1.5rem; font-weight: bold; letter-spacing: 0.2rem; margin-bottom: 2rem; }
-        .input-box { width: 80%; max-width: 400px; background: #111; border: 2px solid #FFD700; padding: 1rem; color: #FFD700; font-size: 1.2rem; outline: none; margin-bottom: 2rem; border-radius: 8px; }
-        .glb-btn { width: 120px; height: 120px; border-radius: 50%; background: #FFD700; border: none; font-size: 1.5rem; font-weight: bold; cursor: pointer; box-shadow: 0 0 20px rgba(255, 215, 0, 0.4); transition: transform 0.1s; }
-        .glb-btn:active { transform: scale(0.95); }
-        .status { margin-top: 2rem; font-size: 0.8rem; color: #555; }
-        .result { margin-top: 1rem; width: 80%; max-width: 400px; font-size: 1.2rem; text-align: left; border-left: 2px solid #FFD700; padding-left: 1rem; }
+        .title { font-size: 1.5rem; font-weight: bold; letter-spacing: 0.2rem; margin-bottom: 2rem; text-transform: uppercase; }
+        .input-box { width: 85%; max-width: 500px; height: 200px; background: #111; border: 2px solid #FFD700; padding: 1.5rem; color: #FFD700; font-size: 1.4rem; outline: none; margin-bottom: 2.5rem; border-radius: 12px; resize: none; }
+        .glb-btn { width: 140px; height: 140px; border-radius: 50%; background: #FFD700; border: none; font-size: 1.8rem; font-weight: 900; color: #000; cursor: pointer; box-shadow: 0 0 30px rgba(255, 215, 0, 0.5); transition: transform 0.1s, box-shadow 0.1s; }
+        .glb-btn:active { transform: scale(0.92); box-shadow: 0 0 10px rgba(255, 215, 0, 0.8); }
+        .result-area { margin-top: 2rem; width: 85%; max-width: 500px; min-height: 100px; color: #FFF; font-size: 1.5rem; text-align: left; padding: 1rem; border-left: 3px solid #FFD700; background: rgba(255, 215, 0, 0.05); }
+        .status-line { margin-top: 3rem; font-size: 0.7rem; color: #444; letter-spacing: 0.1rem; }
     </style>
 </head>
 <body>
     <div class="title">GLOBAL LANGUAGE BREAKER</div>
-    <input type="text" class="input-box" id="userInput" placeholder="INPUT HERE...">
+    
+    <textarea class="input-box" id="userInput" placeholder="ENTER TEXT..."></textarea>
+    
     <button class="glb-btn" onclick="executeGLB()">GLB</button>
-    <div class="result" id="resultArea">STATUS: READY</div>
-    <div class="status">v5.5 SHADOW DEPLOYED</div>
+    
+    <div class="result-area" id="resultArea">READY...</div>
+    
+    <div class="status-line">SHADOW_DEPLOY: v5.5 | NOIR_SYSTEM_ACTIVE</div>
 
     <script>
         async function executeGLB() {
-            const text = document.getElementById('userInput').value;
+            const text = document.getElementById('userInput').value.trim();
             const resArea = document.getElementById('resultArea');
             if(!text) return;
             
+            resArea.style.color = "#FFD700";
             resArea.innerText = "BREAKING...";
+
             try {
+                // Smile Friend (Stella/Noir Gateway) へ直結
                 const response = await fetch('http://127.0.0.1:8080/translate', {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify({ text: text, mode: 'kiwami' })
                 });
+                
                 const data = await response.json();
-                resArea.innerText = data.result || "ERROR";
+                resArea.style.color = "#FFF";
+                resArea.innerText = data.result || "NO_DATA";
             } catch (e) {
-                resArea.innerText = "CONNECTION FAILED";
+                resArea.style.color = "#F00";
+                resArea.innerText = "GATEWAY_OFFLINE";
             }
         }
     </script>
