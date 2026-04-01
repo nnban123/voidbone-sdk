@@ -5,31 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GLOBAL LANGUAGE BREAKER</title>
     <style>
-        body { background: #000; color: #FFD700; font-family: 'Courier New', monospace; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; }
-        .title { font-size: 1.5rem; font-weight: 900; letter-spacing: 0.5rem; margin-bottom: 2rem; text-shadow: 0 0 10px rgba(255, 215, 0, 0.4); }
+        body { background: #000; color: #FFD700; font-family: 'Courier New', monospace; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; overflow: hidden; }
+        .title { font-size: 1.5rem; font-weight: 900; letter-spacing: 0.5rem; margin-bottom: 2rem; text-transform: uppercase; text-shadow: 0 0 15px rgba(255, 215, 0, 0.4); }
         
         /* 執行ボタン：icon.png を使用 */
-        .glb-btn {
-            width: 220px; height: 220px;
+        .glb-trigger {
+            width: 240px; height: 240px;
             background: url('icon.png') no-repeat center;
             background-size: contain;
             border: none; cursor: pointer;
             filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.2));
             transition: transform 0.1s;
-            margin-bottom: 2rem;
+            margin: 1.5rem 0;
+            outline: none;
         }
-        .glb-btn:active { transform: scale(0.95); filter: drop-shadow(0 0 5px #FFD700); }
+        .glb-trigger:active { transform: scale(0.95); filter: drop-shadow(0 0 10px #FFD700); }
 
-        .input-box { 
-            width: 85%; max-width: 500px; height: 100px; background: #0a0a0a; 
-            border: 2px solid #FFD700; padding: 1rem; color: #FFD700; 
-            font-size: 1.4rem; border-radius: 10px; outline: none; text-align: center;
-        }
-        .result-box { 
-            width: 85%; max-width: 500px; min-height: 80px; margin-top: 1.5rem; 
-            border-left: 5px solid #FFD700; padding: 1rem; 
-            background: rgba(255, 215, 0, 0.05); color: #FFF; font-size: 1.3rem; 
-        }
+        .input-box { width: 85%; max-width: 500px; height: 120px; background: #0a0a0a; border: 2px solid #FFD700; padding: 1.2rem; color: #FFD700; font-size: 1.5rem; outline: none; border-radius: 15px; resize: none; text-align: center; }
+        .result-box { width: 85%; max-width: 500px; min-height: 100px; margin-top: 1.5rem; border-left: 5px solid #FFD700; padding: 1.2rem; background: rgba(255, 215, 0, 0.05); color: #FFF; font-size: 1.4rem; }
     </style>
 </head>
 <body>
@@ -37,39 +30,50 @@
     
     <textarea class="input-box" id="userInput" placeholder="INPUT JAPANESE..."></textarea>
     
-    <button class="glb-btn" onclick="executeGLB()"></button>
+    <button class="glb-trigger" onclick="executeGLB()"></button>
     
     <div class="result-box" id="resultArea">READY...</div>
 
     <script>
+        // オンデバイス・フォールバック辞書
+        const localDict = {
+            'おはよう': 'Good morning',
+            'ありがとう': 'Thank you',
+            '駅はどこですか': 'Where is the station?',
+            'トイレはどこですか': 'Where is the restroom?',
+            '助けてください': 'Please help me'
+        };
+
         async function executeGLB() {
             const text = document.getElementById('userInput').value.trim();
             const resArea = document.getElementById('resultArea');
             if(!text) return;
 
+            // 1. まずオンデバイス（Local）でチェック
+            if (localDict[text]) {
+                resArea.style.color = "#FFD700";
+                resArea.innerText = localDict[text] + " (ON-DEVICE)";
+                return;
+            }
+
             resArea.style.color = "#FFD700";
-            resArea.innerText = "SMILE_PROCESSING...";
+            resArea.innerText = "CONNECTING TO SMILE_BASE...";
 
             try {
-                // ターゲットは Smile Friend 8080ポート直結
-                const response = await fetch('http://127.0.0.1:8080/translate', {
+                // 2. 外部 Smile Friend (8080) へ接続試行
+                const response = await fetch('http://localhost:8080/translate', {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({ 
-                        text: text, 
-                        mode: 'strict',
-                        from: 'ja',
-                        to: 'en'
-                    })
+                    body: JSON.stringify({ text: text, mode: 'strict' })
                 });
                 
                 const data = await response.json();
-                // 親方の server.js が返す result を表示
                 resArea.style.color = "#FFF";
-                resArea.innerText = data.result;
+                resArea.innerText = data.result || "TRANSLATION ERROR";
             } catch (e) {
+                // 3. 通信エラー時の最終防衛
                 resArea.style.color = "#F00";
-                resArea.innerText = "Smile_ERROR:UNREACHABLE";
+                resArea.innerText = " PHRASE NOT IN DEVICE";
             }
         }
     </script>
