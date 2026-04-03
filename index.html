@@ -14,7 +14,6 @@
             scroll-behavior: smooth; overflow-x: hidden; 
         }
         
-        /* THE ENTRANCE (READY LOGO) */
         .splash { 
             height: 100vh; width: 100%; display: flex; flex-direction: column; 
             align-items: center; justify-content: center; 
@@ -23,12 +22,78 @@
         .logo-btn { 
             width: 180px; height: 180px; cursor: pointer; 
             transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            filter: drop-shadow(0 0 25px rgba(212,175,55,0.5));
+            filter: drop-shadow(0 0 25px rgba(212,175,55,0.4));
         }
-        .logo-btn:active { transform: scale(0.92); }
         .ready-text { margin-top: 25px; letter-spacing: 12px; font-weight: 900; font-size: 1.2rem; }
 
-        /* THE MISSION (CORE LOGIC) */
-        .onboarding { padding: 80px 25px; text-align: center; max-width: 600px; margin: 0 auto; background: var(--black); }
+        .onboarding { padding: 80px 25px; text-align: center; max-width: 600px; margin: 0 auto; }
         .feature-card { 
-            border: 1px solid rgba(212,175,55,0.2); border
+            border: 1px solid rgba(212,175,55,0.2); border-radius: 40px; 
+            padding: 50px 25px; margin-bottom: 35px; background: #080808; 
+        }
+        .feature-card h3 { margin: 0 0 15px; font-size: 1.6rem; letter-spacing: 4px; color: #fff; }
+        .feature-card p { color: #888; font-size: 1.1rem; line-height: 1.7; margin: 0; }
+
+        .pricing-zone { margin-top: 60px; padding-bottom: 60px; }
+        .btn-premium { 
+            background: var(--gold); color: #000; border: none; width: 100%; max-width: 360px; 
+            padding: 25px; font-weight: 900; border-radius: 25px; font-size: 1.1rem; 
+            cursor: pointer; margin-bottom: 10px; box-shadow: 0 10px 30px rgba(212,175,55,0.3);
+            text-transform: uppercase;
+        }
+        .logic-info { color: #555; font-size: 0.75rem; margin-bottom: 30px; letter-spacing: 1px; font-weight: 600; }
+        
+        .btn-standard { 
+            background: transparent; color: var(--gold); border: 2px solid var(--gold); 
+            width: 100%; max-width: 360px; padding: 20px; font-weight: 700; 
+            border-radius: 25px; font-size: 1rem; cursor: pointer; margin-bottom: 20px; 
+            text-transform: uppercase;
+        }
+        .btn-try { color: #555; text-decoration: underline; font-size: 1rem; border: none; background: none; cursor: pointer; display: block; margin: 25px auto; }
+
+        footer { padding: 80px 20px 120px; text-align: center; border-top: 1px solid #111; }
+        .legal-links { display: flex; justify-content: center; gap: 30px; color: #444; font-size: 0.7rem; letter-spacing: 3px; font-weight: 600; }
+        .copyright { margin-top: 40px; color: #111; font-size: 0.6rem; letter-spacing: 6px; font-weight: 900; }
+    </style>
+</head>
+<body>
+
+    <section class="splash">
+        <img src="icon.png" class="logo-btn" onclick="document.getElementById('intro').scrollIntoView({behavior:'smooth'})" alt="GLB LOGO">
+        <div class="ready-text">READY</div>
+    </section>
+
+    <section class="onboarding" id="intro">
+        <h2 style="letter-spacing: 8px; margin-bottom: 70px; color: var(--gold);">Global Language Breaker</h2>
+        
+        <div class="feature-card">
+            <h3>SMILE & MANNER</h3>
+            <p>Know the local manners & safety alerts to stay confident. Keep your smile anywhere in the world.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>CONNECT & BREAK</h3>
+            <p>150,000 professional phrases with a tilt-enlarge UI. Break the language barrier heart to heart.</p>
+        </div>
+
+        <div class="pricing-zone">
+            <button class="btn-premium" onclick="location.href='https://buy.stripe.com/7sY28t7Rje4UgzZ1DNasg0q'">GET PREMIUM TRAVEL PASS ($24.99)</button>
+            <div class="logic-info">VALID FOR 30 DAYS (EXTENDABLE UP TO 90 DAYS)</div>
+            
+            <button class="btn-standard" onclick="location.href='https://buy.stripe.com/bJedRbefH5yogzZfuDasg09'">GET BASIC PASS ($2.99 / MO)</button>
+            
+            <button class="btn-try" onclick="location.href='./noir/index.html'">CONTINUE AS GUEST (FREE)</button>
+        </div>
+
+        <footer>
+            <div class="legal-links">
+                <span onclick="location.href='support.html'">SUPPORT</span>
+                <span onclick="location.href='privacy.html'">PRIVACY</span>
+                <span onclick="location.href='terms.html'">TERMS</span>
+            </div>
+            <div class="copyright">PRODUCED BY NORI-SAN / NEXTBASE GLOBAL</div>
+        </footer>
+    </section>
+
+</body>
+</html>
