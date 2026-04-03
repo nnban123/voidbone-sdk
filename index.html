@@ -14,7 +14,7 @@
             scroll-behavior: smooth; overflow-x: hidden; 
         }
         
-        /* 1. Splash Section (READY) */
+        /* 1. Splash Section (The Gate) */
         .splash { 
             height: 100vh; width: 100%; 
             display: flex; flex-direction: column; align-items: center; justify-content: center; 
@@ -24,18 +24,18 @@
             width: 180px; height: 180px; 
             cursor: pointer; 
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            filter: drop-shadow(0 0 20px rgba(212,175,55,0.5));
+            filter: drop-shadow(0 0 25px rgba(212,175,55,0.5));
         }
         .logo-btn:active { transform: scale(0.92); }
         .ready-text { margin-top: 25px; letter-spacing: 12px; font-weight: 900; font-size: 1.2rem; }
 
-        /* 2. Onboarding Section (The Value) */
+        /* 2. Onboarding Section (The Briefing) */
         .onboarding { padding: 80px 25px; text-align: center; max-width: 600px; margin: 0 auto; background: var(--black); }
         .feature-card { 
             border: 1px solid rgba(212,175,55,0.2); border-radius: 40px; 
-            padding: 50px 25px; margin-bottom: 30px; background: #080808; 
+            padding: 50px 25px; margin-bottom: 35px; background: #080808; 
         }
-        .feature-card h3 { margin: 0 0 15px; font-size: 1.6rem; letter-spacing: 4px; color: #fff; }
+        .feature-card h3 { margin: 0 0 15px; font-size: 1.6rem; letter-spacing: 4px; color: #fff; text-transform: uppercase; }
         .feature-card p { color: #888; font-size: 1.1rem; line-height: 1.7; margin: 0; }
 
         /* 3. Pricing Zone */
@@ -44,27 +44,29 @@
             background: var(--gold); color: #000; border: none; width: 100%; max-width: 360px; 
             padding: 25px; font-weight: 900; border-radius: 25px; font-size: 1.2rem; 
             cursor: pointer; margin-bottom: 20px; box-shadow: 0 10px 30px rgba(212,175,55,0.3);
+            text-transform: uppercase;
         }
         .btn-standard { 
             background: transparent; color: var(--gold); border: 2px solid var(--gold); 
             width: 100%; max-width: 360px; padding: 20px; font-weight: 700; 
             border-radius: 25px; font-size: 1.1rem; cursor: pointer; margin-bottom: 20px; 
+            text-transform: uppercase;
         }
-        .btn-try { color: #555; text-decoration: underline; font-size: 0.95rem; border: none; background: none; cursor: pointer; display: block; margin: 20px auto; }
+        .btn-try { color: #555; text-decoration: underline; font-size: 1rem; border: none; background: none; cursor: pointer; display: block; margin: 25px auto; }
 
-        /* 4. Footer (The Trust) */
+        /* 4. Footer (NORI-SAN Signature) */
         footer { 
-            padding: 60px 20px 100px; 
+            padding: 80px 20px 120px; 
             text-align: center;
             border-top: 1px solid #111;
         }
         .legal-links { 
-            display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; 
-            color: #333; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 3px; font-weight: 600;
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; 
+            color: #444; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 3px; font-weight: 600;
         }
         .legal-links span { cursor: pointer; transition: 0.3s; }
         .legal-links span:hover { color: var(--gold); }
-        .copyright { margin-top: 30px; color: #111; font-size: 0.5rem; letter-spacing: 5px; font-weight: 900; }
+        .copyright { margin-top: 40px; color: #111; font-size: 0.6rem; letter-spacing: 6px; font-weight: 900; }
     </style>
 </head>
 <body>
@@ -75,22 +77,22 @@
     </section>
 
     <section class="onboarding" id="intro">
-        <h2 style="letter-spacing: 12px; margin-bottom: 60px; color: var(--gold);">NEXT LEVEL</h2>
+        <h2 style="letter-spacing: 12px; margin-bottom: 70px; color: var(--gold);">MISSION BRIEFING</h2>
         
         <div class="feature-card">
-            <h3>NO MORE FEAR</h3>
-            <p>Know the local manners, tipping guides, and safety before you land. We provide the "Shield" for your adventure.</p>
+            <h3>THE SHIELD</h3>
+            <p>Master local manners, tipping rules, and safety alerts before you land. We provide the intelligence for your adventure.</p>
         </div>
 
         <div class="feature-card">
-            <h3>HEART CONNECT</h3>
-            <p>150,000 professional phrases. Just tilt your iPhone to flip the screen and show your intention.</p>
+            <h3>THE WEAPON</h3>
+            <p>150,000 specialized phrases at your fingertips. Tilt your iPhone to flip the screen and project your intention.</p>
         </div>
 
         <div class="pricing-zone">
             <button class="btn-premium" onclick="location.href='https://buy.stripe.com/7sY28t7Rje4UgzZ1DNasg0q'">ACTIVATE TRAVEL MODE ($24.99)</button>
             <button class="btn-standard" onclick="location.href='https://buy.stripe.com/bJedRbefH5yogzZfuDasg09'">GET BASIC PASS ($2.99)</button>
-            <button class="btn-try" onclick="location.href='./noir/index.html'">Try for free</button>
+            <button class="btn-try" onclick="location.href='./noir/index.html'">CONTINUE AS GUEST (TRY FREE)</button>
         </div>
 
         <footer>
@@ -98,9 +100,8 @@
                 <span onclick="location.href='support.html'">SUPPORT</span>
                 <span onclick="location.href='privacy.html'">PRIVACY</span>
                 <span onclick="location.href='terms.html'">TERMS</span>
-                <span onclick="location.href='legal.html'">LEGAL</span>
             </div>
-            <div class="copyright">SMILE / FRIEND / NEXTBASE</div>
+            <div class="copyright">PRODUCED BY NORI-SAN / NEXTBASE GLOBAL</div>
         </footer>
     </section>
 
