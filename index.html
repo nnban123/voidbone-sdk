@@ -1,104 +1,147 @@
 <!DOCTYPE html>
-<html lang="en" class="notranslate" translate="no">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="google" content="notranslate">
-    <title>GLB - Simple & Powerful Translation</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        :root { --gold: #D4AF37; --black: #050505; }
-        body { background: var(--black); color: white; font-family: -apple-system, sans-serif; -webkit-font-smoothing: antialiased; }
-        .glass { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(20px); }
-        .btn-gold { background: var(--gold); color: black; font-weight: 900; transition: all 0.2s; }
-        .btn-gold:active { transform: scale(0.98); opacity: 0.9; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GLB | NEXT BASE</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* トップ専用のエクストリーム・デザイン */
+    body { background: #000; overflow-x: hidden; }
+    
+    .hero-content {
+      text-align: center;
+      padding: 60px 20px;
+      animation: fadeIn 1.2s ease-out;
+    }
+
+    .logo-container {
+      margin-bottom: 30px;
+    }
+
+    .logo-img {
+      width: 100px;
+      height: auto;
+      filter: drop-shadow(var(--shadow-gold));
+    }
+
+    .video-frame {
+      width: 100%;
+      max-width: 900px;
+      margin: 40px auto;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-neon);
+      overflow: hidden;
+      background: #000;
+    }
+
+    video { width: 100%; display: block; }
+
+    .main-title {
+      font-size: clamp(60px, 10vw, 120px);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      margin: 0;
+      background: linear-gradient(135deg, #fff 30%, var(--gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .slogan {
+      font-size: clamp(18px, 3vw, 28px);
+      color: var(--muted);
+      margin: 20px 0 40px;
+      letter-spacing: 0.1em;
+    }
+
+    /* 魂のGOボタン */
+    .btn-launch {
+      display: inline-block;
+      background: var(--gold-2);
+      color: #000;
+      padding: 24px 80px;
+      font-size: 24px;
+      font-weight: 900;
+      text-decoration: none;
+      border-radius: 60px;
+      letter-spacing: 0.2em;
+      box-shadow: var(--shadow-gold);
+      transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-launch:hover {
+      transform: scale(1.1) translateY(-5px);
+      background: #fff;
+      box-shadow: 0 20px 40px rgba(255, 217, 120, 0.4);
+    }
+
+    .price-notice {
+      margin-top: 20px;
+      color: var(--neon);
+      font-weight: bold;
+      letter-spacing: 0.3em;
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .footer-links {
+      margin-top: 100px;
+      padding: 40px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 12px;
+      transition: 0.3s;
+    }
+
+    .footer-links a:hover { color: var(--gold); }
+  </style>
 </head>
-<body class="flex flex-col items-center min-h-screen px-5 pb-10">
+<body>
+  <div class="wrap">
+    <div class="hero-content">
+      <div class="logo-container">
+        <img src="logo.png" alt="GLB" class="logo-img">
+      </div>
+      
+      <h1 class="main-title">GLB</h1>
+      <p class="slogan">Meaning, Delivered.</p>
 
-    <header class="py-12 text-center">
-        <h1 class="text-5xl font-black italic tracking-tighter mb-1">GLB</h1>
-        <p class="text-[9px] tracking-[0.4em] text-[#D4AF37] font-bold">GLOBAL LANGUAGE BREAKER</p>
-    </header>
+      <div class="video-frame">
+        <video src="video.mp4" autoplay loop muted playsinline></video>
+      </div>
 
-    <main class="w-full max-w-md space-y-6 flex-1">
-        <section class="glass p-8 rounded-[2rem] text-center shadow-xl">
-            <p class="text-xs font-bold text-gray-500 mb-4 uppercase tracking-widest">Premium Access</p>
-            <div class="flex justify-center items-baseline gap-1 mb-6">
-                <span class="text-6xl font-black">$2.99</span>
-                <span class="text-sm text-gray-500">/mo</span>
-            </div>
-            <a href="https://buy.stripe.com/bJedRbefH5yogzZfuDasg09" class="block w-full py-5 btn-gold rounded-xl text-xl shadow-lg">
-                UNLOCK NOW
-            </a>
-            <p class="text-[11px] text-gray-400 mt-5 leading-relaxed">
-                Enjoy unlimited high-quality translation.<br>Simple, fast, and secure.
-            </p>
-        </section>
+      <p class="lead" style="max-width: 600px; margin: 0 auto 40px; line-height: 1.8;">
+        English fluency is no longer a requirement.<br>
+        Built for users who need to be understood, not just translated.
+      </p>
 
-        <section class="glass p-5 rounded-[2rem] flex flex-col h-[380px]">
-            <div id="chat-box" class="flex-1 overflow-y-auto p-2 space-y-4 text-sm">
-                <div class="flex justify-start">
-                    <p class="bg-white/5 border border-white/10 p-4 rounded-2xl text-gray-400">
-                        Ready. Enter text to translate.
-                    </p>
-                </div>
-            </div>
-            
-            <div class="mt-4 flex gap-2">
-                <input id="user-input" type="text" class="flex-1 bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-[#D4AF37]" placeholder="Type here...">
-                <button onclick="handleChat()" class="bg-white text-black px-6 py-4 rounded-xl font-bold">GO</button>
-            </div>
-        </section>
-    </main>
+      <a href="translate.html" class="btn-launch">START</a>
+      <p class="price-notice">$2.99 / One-time Access</p>
+    </div>
 
-    <footer class="w-full max-w-md mt-10">
-        <div class="grid grid-cols-3 gap-2 mb-8">
-            <a href="/terms.html" class="glass py-3 rounded-lg text-[10px] text-center font-bold text-gray-400 uppercase tracking-tighter">Terms</a>
-            <a href="/privacy.html" class="glass py-3 rounded-lg text-[10px] text-center font-bold text-gray-400 uppercase tracking-tighter border-[#D4AF37]/30">Privacy</a>
-            <a href="/support.html" class="glass py-3 rounded-lg text-[10px] text-center font-bold text-gray-400 uppercase tracking-tighter">Support</a>
-        </div>
-        <p class="text-[8px] text-gray-800 text-center tracking-[0.3em]">© 2026 NEXTBASE ONE</p>
+    <footer class="footer-links">
+      <a href="support.html">Support</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="legal.html">Legal Notice</a>
+      <p style="width: 100%; text-align: center; opacity: 0.3; margin-top: 20px;">© NEXT BASE</p>
     </footer>
-
-    <script>
-    async function sendMessage(text) {
-        const chatBox = document.getElementById('chat-box');
-        const today = new Date().toLocaleDateString();
-        let stats = JSON.parse(localStorage.getItem('glb_usage') || '{"date":"","count":0}');
-        if (stats.date !== today) stats = {date: today, count: 0};
-
-        if (stats.count >= 3) {
-            chatBox.innerHTML += `<div class="flex justify-start"><p class="bg-[#D4AF37]/10 border border-[#D4AF37]/20 p-4 rounded-2xl text-[#D4AF37]">Daily limit reached. Please UNLOCK for more.</p></div>`;
-            return;
-        }
-
-        chatBox.innerHTML += `<div class="flex justify-end"><p class="bg-white/10 p-4 rounded-2xl text-white max-w-[85%]">${text}</p></div>`;
-
-        try {
-            const response = await fetch('https://glb-nexus.tomori-engine.io/v1/webhook/receiver/nori-san-01', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ user_input: text, mode: 'SIMPLE_TRANS' })
-            });
-            const data = await response.json();
-            stats.count++;
-            localStorage.setItem('glb_usage', JSON.stringify(stats));
-
-            chatBox.innerHTML += `<div class="flex justify-start"><p class="bg-white/5 border border-white/10 p-4 rounded-2xl max-w-[85%] text-[#D4AF37]"><span class="text-white/20 text-[9px] block mb-1">GLB:</span>${data.output || 'Complete.'}</p></div>`;
-        } catch (e) {
-            chatBox.innerHTML += `<p class="text-gray-800 text-[10px] text-center italic mt-4">Connecting...</p>`;
-        }
-        chatBox.scrollTop = chatBox.scrollHeight;
-    }
-
-    function handleChat() {
-        const input = document.getElementById('user-input');
-        if(!input.value) return;
-        sendMessage(input.value);
-        input.value = '';
-    }
-    document.getElementById('user-input').addEventListener('keypress', (e) => { if (e.key === 'Enter') handleChat(); });
-    </script>
+  </div>
 </body>
 </html>
