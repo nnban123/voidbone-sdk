@@ -14,7 +14,7 @@
             scroll-behavior: smooth; overflow-x: hidden; 
         }
         
-        /* 1. Logo Section (READY画面) */
+        /* 1. Splash Section (READY) */
         .splash { 
             height: 100vh; width: 100%; 
             display: flex; flex-direction: column; align-items: center; justify-content: center; 
@@ -26,10 +26,10 @@
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             filter: drop-shadow(0 0 20px rgba(212,175,55,0.5));
         }
-        .logo-btn:active { transform: scale(0.9); }
+        .logo-btn:active { transform: scale(0.92); }
         .ready-text { margin-top: 25px; letter-spacing: 12px; font-weight: 900; font-size: 1.2rem; }
 
-        /* 2. Onboarding Section (画像11:36の再現) */
+        /* 2. Onboarding Section (The Value) */
         .onboarding { padding: 80px 25px; text-align: center; max-width: 600px; margin: 0 auto; background: var(--black); }
         .feature-card { 
             border: 1px solid rgba(212,175,55,0.2); border-radius: 40px; 
@@ -38,8 +38,8 @@
         .feature-card h3 { margin: 0 0 15px; font-size: 1.6rem; letter-spacing: 4px; color: #fff; }
         .feature-card p { color: #888; font-size: 1.1rem; line-height: 1.7; margin: 0; }
 
-        /* 3. Pricing Buttons */
-        .pricing-zone { margin-top: 60px; padding-bottom: 120px; }
+        /* 3. Pricing Zone */
+        .pricing-zone { margin-top: 60px; padding-bottom: 60px; }
         .btn-premium { 
             background: var(--gold); color: #000; border: none; width: 100%; max-width: 360px; 
             padding: 25px; font-weight: 900; border-radius: 25px; font-size: 1.2rem; 
@@ -52,7 +52,19 @@
         }
         .btn-try { color: #555; text-decoration: underline; font-size: 0.95rem; border: none; background: none; cursor: pointer; display: block; margin: 20px auto; }
 
-        footer { padding: 60px 0; opacity: 0.3; font-size: 0.75rem; border-top: 1px solid #111; }
+        /* 4. Footer (The Trust) */
+        footer { 
+            padding: 60px 20px 100px; 
+            text-align: center;
+            border-top: 1px solid #111;
+        }
+        .legal-links { 
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; 
+            color: #333; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 3px; font-weight: 600;
+        }
+        .legal-links span { cursor: pointer; transition: 0.3s; }
+        .legal-links span:hover { color: var(--gold); }
+        .copyright { margin-top: 30px; color: #111; font-size: 0.5rem; letter-spacing: 5px; font-weight: 900; }
     </style>
 </head>
 <body>
@@ -82,7 +94,13 @@
         </div>
 
         <footer>
-            <p>© 2026 NEXTBASE GLOBAL</p>
+            <div class="legal-links">
+                <span onclick="location.href='support.html'">SUPPORT</span>
+                <span onclick="location.href='privacy.html'">PRIVACY</span>
+                <span onclick="location.href='terms.html'">TERMS</span>
+                <span onclick="location.href='legal.html'">LEGAL</span>
+            </div>
+            <div class="copyright">SMILE / FRIEND / NEXTBASE</div>
         </footer>
     </section>
 
