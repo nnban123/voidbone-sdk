@@ -1,44 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="notranslate" translate="no">
 <head>
     <meta charset="UTF-8">
-    <title>GLB - TERMINAL</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>VIP TERMINAL | GLB</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background: #000; color: #fff; font-family: sans-serif; text-align: center; padding: 20px; }
-        .intel { background: #D4AF37; color: #000; padding: 15px; border-radius: 10px; margin-bottom: 20px; display: none; font-weight: 900; }
-        input { width: 90%; max-width: 400px; padding: 20px; background: #111; border: 1px solid #D4AF37; color: #fff; border-radius: 15px; font-size: 1.2rem; outline: none; }
-        #result { margin-top: 30px; text-align: left; max-width: 400px; margin: 30px auto; color: #D4AF37; line-height: 1.8; }
+        body { background: #000; color: #fff; font-family: -apple-system, sans-serif; }
+        .glow { box-shadow: 0 0 20px rgba(212, 175, 55, 0.2); }
+        .terminal-bg { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(212, 175, 55, 0.3); }
     </style>
 </head>
-<body>
-    <div id="intel-layer" class="intel">🛡️ TRAVEL MODE ACTIVE</div>
-    <div style="margin-top: 50px;">
-        <input type="text" id="input" placeholder="Type here..." onkeydown="if(event.key==='Enter') breakBarrier()">
-        <p id="counter" style="font-size: 0.7rem; color: #555; margin-top: 10px;"></p>
-    </div>
-    <div id="result"></div>
-    <script>
-        const plan = new URLSearchParams(window.location.search).get('plan');
-        const limit = (plan === 'travel' || plan === 'premium') ? 300 : 30;
-        const stored = JSON.parse(localStorage.getItem('glb_intel'));
-        if (plan === 'travel' && !stored) {
-            const dest = prompt("Set Destination:");
-            if(dest) localStorage.setItem('glb_intel', JSON.stringify({dest, date: Date.now()}));
-        }
-        if (stored) {
-            document.getElementById('intel-layer').style.display = 'block';
-            document.getElementById('intel-layer').innerText = `📍 ${stored.dest}: Manners & Tips Active`;
-        }
-        function breakBarrier() {
-            let count = parseInt(localStorage.getItem('glb_api_count') || 0);
-            if (count >= limit) return alert("Limit Reached.");
-            const val = document.getElementById('input').value;
-            if(!val) return;
-            document.getElementById('result').innerHTML = "Analyzing in Smile Friend Intelligence...<br><span style='font-size:0.7rem; color:#555;'>Maturing high-precision phrases (Waiting for 5)</span>";
-            localStorage.setItem('glb_api_count', ++count);
-            document.getElementById('counter').innerText = `Usage: ${count} / ${limit}`;
-            document.getElementById('input').value = '';
-        }
-    </script>
+<body class="flex flex-col items-center justify-center min-h-screen px-6">
+
+    <header class="text-center mb-10">
+        <div class="inline-block px-4 py-1 border border-[#D4AF37] text-[#D4AF37] text-[10px] font-bold tracking-[0.3em] uppercase mb-4">
+            Premium Access Active
+        </div>
+        <h1 class="text-4xl font-black italic tracking-tighter uppercase">GLB VIP</h1>
+    </header>
+
+    <main class="w-full max-w-md terminal-bg rounded-3xl p-8 glow">
+        <p class="text-gray-500 text-xs mb-6 font-mono">CONNECTION STATUS: SECURED<br>ENGINE: TOMORI_V1_ACTIVE</p>
+        
+        <div class="space-y-4 mb-8">
+            <div class="text-sm leading-relaxed text-gray-300">
+                Welcome to the Unlimited Tier. <br>
+                The linguistic barriers are now removed.
+            </div>
+        </div>
+
+        <input type="text" placeholder="Type anything to translate..." 
+               class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-[#D4AF37] mb-4">
+        
+        <button class="w-full py-4 bg-[#D4AF37] text-black font-black rounded-xl uppercase tracking-widest">
+            Execute Global Translation
+        </button>
+    </main>
+
+    <footer class="mt-10">
+        <a href="/index.html" class="text-gray-600 text-[10px] uppercase tracking-widest hover:text-[#D4AF37]">Return to Dashboard</a>
+    </footer>
+
 </body>
 </html>
