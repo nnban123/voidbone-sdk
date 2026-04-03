@@ -2,127 +2,105 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>GLB | NEXT BASE</title>
   <style>
-    /* 全体設定 */
-    body, html {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden; /* スクロール禁止 */
-      background-color: #000;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    /* 画面固定 */
+    html, body {
+      margin: 0; padding: 0; width: 100%; height: 100%;
+      overflow: hidden; background: #000; font-family: sans-serif;
     }
 
-    /* 動画を背景に固定 */
-    .video-background {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      min-width: 100%;
-      min-height: 100%;
-      width: auto;
-      height: auto;
-      z-index: -1;
+    /* 扉（動画）を背景いっぱいに配置 */
+    .door-video {
+      position: absolute;
+      top: 50%; left: 50%;
+      min-width: 100%; min-height: 100%;
+      width: auto; height: auto;
+      z-index: 1;
       transform: translate(-50%, -50%);
     }
 
-    /* 前面のコンテンツレイヤー */
-    .overlay {
-      position: relative;
+    /* コンテンツレイヤー：動画の上に浮かせる */
+    .content-layer {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
       z-index: 10;
-      width: 100%;
-      height: 100%;
       display: flex;
       flex-direction: column;
-      justify-content: space-between; /* 上下中央に配置 */
+      justify-content: center;
       align-items: center;
-      background: rgba(0, 0, 0, 0.3); /* 動画を少し暗くして視認性アップ */
-      padding: 60px 0;
-      box-sizing: border-box;
-    }
-
-    /* ロゴ */
-    .logo-img {
-      width: 120px;
-      height: auto;
-      filter: drop-shadow(0 0 15px rgba(255, 217, 120, 0.5));
-    }
-
-    /* 中央のメインエリア */
-    .main-box {
+      background: rgba(0, 0, 0, 0.2); /* 扉の奥が見える程度の薄い膜 */
       text-align: center;
     }
 
+    /* ロゴ：扉が開いた先に浮かび上がる演出 */
+    .logo-img {
+      width: 100px;
+      height: auto;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 0 20px rgba(255, 217, 120, 0.8));
+      animation: zoomIn 1.5s ease-out;
+    }
+
     .main-title {
-      font-size: 72px;
+      font-size: 80px;
       font-weight: 900;
       color: #fff;
       margin: 0;
-      letter-spacing: 0.2em;
-      text-shadow: 0 0 20px rgba(0,0,0,0.8);
+      letter-spacing: 0.15em;
+      text-shadow: 0 0 30px rgba(0,0,0,1);
     }
 
-    /* STARTボタン：絶対にクリック可能に */
+    /* 魂のSTARTボタン：動画に関わらず最初から表示 */
     .btn-start {
-      display: inline-block;
-      margin-top: 30px;
-      background: #ffd978; /* gold-2 */
+      display: block;
+      margin-top: 50px;
+      background: #ffd978;
       color: #000;
-      padding: 20px 80px;
-      font-size: 24px;
+      padding: 22px 90px;
+      font-size: 26px;
       font-weight: 900;
       text-decoration: none;
-      border-radius: 50px;
-      box-shadow: 0 0 30px rgba(255, 217, 120, 0.6);
-      transition: transform 0.2s;
+      border-radius: 60px;
+      letter-spacing: 0.2em;
+      box-shadow: 0 0 40px rgba(255, 217, 120, 0.6);
+      transition: 0.3s;
+      cursor: pointer;
+    }
+    .btn-start:hover { transform: scale(1.1); background: #fff; }
+
+    .price-tag { color: #69f0ff; font-weight: bold; margin-top: 20px; letter-spacing: 0.2em; }
+
+    @keyframes zoomIn {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
     }
 
-    .btn-start:hover {
-      transform: scale(1.1);
-      background: #fff;
-    }
-
-    .price-tag {
-      color: #69f0ff; /* neon */
-      font-weight: bold;
-      margin-top: 15px;
-      letter-spacing: 0.1em;
-    }
-
-    /* フッターリンク */
-    .footer-nav {
-      display: flex;
-      gap: 20px;
-    }
-
-    .footer-nav a {
-      color: rgba(255,255,255,0.6);
-      text-decoration: none;
-      font-size: 13px;
-    }
+    .footer { position: absolute; bottom: 30px; display: flex; gap: 20px; }
+    .footer a { color: rgba(255,255,255,0.4); text-decoration: none; font-size: 11px; }
   </style>
 </head>
 <body>
 
-  <video autoplay loop muted playsinline class="video-background">
+  <video autoplay loop muted playsinline class="door-video">
     <source src="door.mp4" type="video/mp4">
   </video>
 
-  <div class="overlay">
-    <img src="icon.png" alt="GLB Logo" class="logo-img"> <div class="main-box">
-      <h1 class="main-title">GLB</h1>
-      <a href="translate.html" class="btn-start">START</a> <p class="price-tag">$2.99 / One-time Access</p>
-    </div>
+  <div class="content-layer">
+    <img src="icon.png" alt="Logo" class="logo-img">
+    <h1 class="main-title">GLB</h1>
+    
+    <a href="translate.html" class="btn-start">START</a>
+    
+    <p class="price-tag">$2.99 ACCESS</p>
 
-    <nav class="footer-nav">
+    <div class="footer">
       <a href="support.html">Support</a>
       <a href="privacy.html">Privacy</a>
       <a href="terms.html">Terms</a>
       <a href="legal.html">Legal</a>
-    </nav>
+    </div>
   </div>
 
 </body>
