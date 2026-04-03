@@ -4,29 +4,60 @@
     <meta charset="UTF-8">
     <title>GLB - TERMINAL</title>
     <style>
-        body { background: #000; color: #D4AF37; font-family: sans-serif; text-align: center; padding-top: 100px; }
-        #travel-panel { display: none; background: #D4AF37; color: #000; padding: 20px; font-weight: 900; margin-bottom: 20px; }
+        :root { --gold: #D4AF37; }
+        body { background: #000; color: #fff; font-family: sans-serif; text-align: center; padding: 20px; }
+        .intel { background: var(--gold); color: #000; padding: 20px; border-radius: 15px; margin-bottom: 30px; display: none; font-weight: 900; }
+        input { width: 100%; max-width: 400px; padding: 20px; background: #111; border: 1px solid var(--gold); color: #fff; border-radius: 15px; font-size: 1.2rem; outline: none; }
+        #result { margin-top: 30px; text-align: left; max-width: 400px; margin: 30px auto; line-height: 1.8; color: var(--gold); }
     </style>
 </head>
 <body>
-    <div id="travel-panel">🛡️ TRAVEL MODE ACTIVE: Manners & Safety Loaded</div>
-    <h1>GLB: 1API PENETRATION</h1>
-    <div id="app-content">Connecting to Smile Friend...</div>
+    <div id="intel-layer" class="intel">🛡️ TRAVEL MODE ACTIVE</div>
+    <div style="margin-top: 50px;">
+        <input type="text" id="input" placeholder="Type word..." onkeydown="if(event.key==='Enter') breakBarrier()">
+        <p id="counter" style="font-size: 0.7rem; color: #555; margin-top: 10px;"></p>
+    </div>
+    <div id="result"></div>
 
     <script>
-        // 【1API貫通ロジック】
-        const urlParams = new URLSearchParams(window.location.search);
-        const plan = urlParams.get('plan');
+        const params = new URLSearchParams(window.location.search);
+        const plan = params.get('plan');
+        const limit = (plan === 'travel' || plan === 'premium') ? 300 : 30;
 
-        if (plan === 'travel') {
-            document.getElementById('travel-panel').style.display = 'block';
-            const dest = prompt("Set Destination for Manners & Tips:");
-            console.log("STELLA: Destination set to " + dest);
-            // 事務長ステラへエンドポイント経由で通知
+        // 旅行モード：初回行き先設定とチップ表示
+        if (plan === 'travel' && !localStorage.getItem('glb_intel')) {
+            const dest = prompt("Set Destination:");
+            if(dest) {
+                const intel = { dest: dest, tips: "15-20% standard", date: Date.now() };
+                localStorage.setItem('glb_intel', JSON.stringify(intel));
+            }
         }
-        
-        // 単語1➔3英文ロジックはここに実装される
-        console.log("NOIR: B is monitoring the connection.");
+
+        const storedIntel = JSON.parse(localStorage.getItem('glb_intel'));
+        if (storedIntel && (Date.now() - storedIntel.date < 30 * 24 * 60 * 60 * 1000)) {
+            document.getElementById('intel-layer').style.display = 'block';
+            document.getElementById('intel-layer').innerText = `📍 ${storedIntel.dest}: Tips & Manners Loaded`;
+        }
+
+        function breakBarrier() {
+            let count = parseInt(localStorage.getItem('glb_api_count') || 0);
+            if (count >= limit) return alert("Monthly Limit Reached.");
+
+            const val = document.getElementById('input').value;
+            // 【1API貫通】伝わる3パターン提示
+            document.getElementById('result').innerHTML = `
+                • May I have ${val}?<br>
+                • Where is ${val}?<br>
+                • ${val}, please.
+            `;
+            
+            count++;
+            localStorage.setItem('glb_api_count', count);
+            document.getElementById('counter').innerText = `Usage: ${count} / ${limit}`;
+            // 学習帳へキャッシュ
+            localStorage.setItem('dic_' + val, val);
+            input.value = '';
+        }
     </script>
 </body>
 </html>
