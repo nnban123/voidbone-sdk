@@ -1,111 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>GLB - NEXTBASE GLOBAL</title>
-    <style>
-        :root { --gold: #D4AF37; --black: #000; }
-        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        body, html { 
-            margin: 0; padding: 0; width: 100%; height: 100%; 
-            background: var(--black); color: var(--gold); 
-            font-family: -apple-system, BlinkMacSystemFont, sans-serif; 
-            scroll-behavior: smooth; overflow-x: hidden; 
-        }
-        
-        /* Splash & Logo */
-        .splash { 
-            height: 100vh; width: 100%; 
-            display: flex; align-items: center; justify-content: center; 
-            position: relative; overflow: hidden;
-        }
-        #bg-video { 
-            position: absolute; inset: 0; width: 100%; height: 100%; 
-            object-fit: cover; opacity: 0.5; z-index: 1;
-            pointer-events: none; /* 動画への誤タップ防止 */
-        }
-        .logo-btn { 
-            width: 180px; height: 180px; 
-            z-index: 10; cursor: pointer; 
-            transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            filter: drop-shadow(0 0 20px rgba(212,175,55,0.5));
-        }
+// index.html 内のボタン処理
+function goToStripe(plan) {
+    if (plan === 'travel') {
+        // $24.99 決済へ
+        window.location.href = 'https://buy.stripe.com/7sY28t7Rje4UgzZ1DNasg0q';
+    } else if (plan === 'basic') {
+        // $2.99 決済へ
+        window.location.href = 'https://buy.stripe.com/bJedRbefH5yogzZfuDasg09';
+    }
+}
 
-        /* Onboarding */
-        .onboarding { padding: 100px 25px; text-align: center; max-width: 600px; margin: 0 auto; background: var(--black); }
-        .feature-card { 
-            border: 1px solid rgba(212,175,55,0.2); border-radius: 40px; 
-            padding: 50px 25px; margin-bottom: 30px; 
-            background: rgba(15,15,15,0.9); backdrop-filter: blur(10px); 
-        }
-        .feature-card h3 { margin: 0 0 15px; font-size: 1.6rem; letter-spacing: 4px; color: #fff; }
-        .feature-card p { color: #888; font-size: 1.1rem; line-height: 1.7; margin: 0; }
-
-        /* Pricing */
-        .pricing-zone { margin-top: 60px; padding-bottom: 120px; }
-        .btn-premium { 
-            background: var(--gold); color: #000; border: none; 
-            width: 100%; max-width: 360px; padding: 25px; 
-            font-weight: 900; border-radius: 25px; 
-            font-size: 1.2rem; cursor: pointer; margin-bottom: 20px; 
-        }
-        .btn-standard { 
-            background: transparent; color: var(--gold); border: 2px solid var(--gold); 
-            width: 100%; max-width: 360px; padding: 20px; 
-            font-weight: 700; border-radius: 25px; font-size: 1.1rem; cursor: pointer; margin-bottom: 20px; 
-        }
-        .btn-try { color: #555; text-decoration: underline; font-size: 0.95rem; border: none; background: none; cursor: pointer; }
-
-        footer { padding: 60px 0; opacity: 0.3; font-size: 0.75rem; border-top: 1px solid #222; }
-    </style>
-</head>
-<body>
-
-    <section class="splash" id="splash-screen">
-        <video autoplay muted loop playsinline id="bg-video">
-            <source src="bg.mp4" type="video/mp4">
-        </video>
-        <img src="icon.png" class="logo-btn" onclick="scrollToIntro()" alt="GLB LOGO">
-    </section>
-
-    <section class="onboarding" id="intro">
-        <h2 style="letter-spacing: 12px; margin-bottom: 60px;">NEXT LEVEL</h2>
-        
-        <div class="feature-card">
-            <h3>NO MORE FEAR</h3>
-            <p>Know the local manners, tipping guides, and safety before you land.</p>
-        </div>
-
-        <div class="feature-card">
-            <h3>HEART CONNECT</h3>
-            <p>150,000 professional phrases. Just tilt your iPhone to flip the screen.</p>
-        </div>
-
-        <div class="pricing-zone">
-            <button class="btn-premium" onclick="location.href='https://buy.stripe.com/7sY28t7Rje4UgzZ1DNasg0q'">ACTIVATE TRAVEL MODE ($24.99)</button>
-            <button class="btn-standard" onclick="location.href='https://buy.stripe.com/bJedRbefH5yogzZfuDasg09'">GET BASIC PASS ($2.99)</button>
-            <button class="btn-try" onclick="location.href='translate.html'">Try for free</button>
-        </div>
-
-        <footer>
-            <p>© 2026 NEXTBASE GLOBAL</p>
-        </footer>
-    </section>
-
-    <script>
-        // 動画の強制再生（iOS対策）
-        window.addEventListener('load', () => {
-            const video = document.getElementById('bg-video');
-            video.play().catch(() => {
-                // 自動再生がブロックされた場合の保険
-                console.log("Video play blocked, waiting for interaction.");
-            });
-        });
-
-        function scrollToIntro() {
-            document.getElementById('intro').scrollIntoView({behavior:'smooth'});
-        }
-    </script>
-</body>
-</html>
+// 決済完了後、translate.html側でプランを判定するロジック（BEE実装）
+window.onload = function() {
+    const params = new URLSearchParams(window.location.search);
+    const plan = params.get('plan');
+    if (plan === 'travel') {
+        localStorage.setItem('user_rank', 'traveler');
+        showTravelBriefing(); // 旅行者専用の「笑顔」を守る画面へ
+    } else if (plan === 'basic') {
+        localStorage.setItem('user_rank', 'standard');
+        unlockUnlimited(); // 日常の制限解除へ
+    }
+}
