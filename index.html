@@ -8,20 +8,23 @@
         :root { --gold: #D4AF37; --black: #000; }
         body, html { margin: 0; padding: 0; background: var(--black); color: var(--gold); font-family: -apple-system, sans-serif; text-align: center; }
         .hero { height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; background: radial-gradient(circle, #1a1a1a 0%, #000 100%); }
+        .logo { width: 180px; cursor: pointer; filter: drop-shadow(0 0 20px rgba(212,175,55,0.4)); }
         .btn-main { background: var(--gold); color: #000; border: none; width: 90%; max-width: 360px; padding: 25px; font-weight: 900; border-radius: 25px; font-size: 1.1rem; cursor: pointer; margin-bottom: 15px; }
         .btn-sub { background: transparent; color: var(--gold); border: 2px solid var(--gold); width: 90%; max-width: 360px; padding: 18px; font-weight: 700; border-radius: 20px; font-size: 1rem; cursor: pointer; margin-bottom: 15px; }
+        footer { padding: 40px; color: #444; font-size: 0.7rem; border-top: 1px solid #111; letter-spacing: 2px; }
     </style>
 </head>
 <body>
     <section class="hero">
-        <img src="icon.png" style="width:180px; filter: drop-shadow(0 0 20px rgba(212,175,55,0.4));" onclick="document.getElementById('intro').scrollIntoView({behavior:'smooth'})">
-        <div style="margin-top:20px; letter-spacing:10px;">READY</div>
+        <img src="icon.png" class="logo" onclick="document.getElementById('intro').scrollIntoView({behavior:'smooth'})">
+        <div style="margin-top:20px; letter-spacing:10px; font-weight:900;">READY</div>
     </section>
     <section id="intro" style="padding: 100px 20px;">
         <h2 style="letter-spacing: 5px; margin-bottom: 50px;">Global Language Breaker</h2>
         <button class="btn-main" onclick="location.href='https://buy.stripe.com/7sY28t7Rje4UgzZ1DNasg0q'">TRAVEL PASS ($24.99)</button>
         <button class="btn-sub" onclick="location.href='https://buy.stripe.com/bJedRbefH5yogzZfuDasg09'">BASIC PASS ($2.99/mo)</button>
         <button class="btn-sub" onclick="location.href='https://buy.stripe.com/5kQ14pgnP7Gw1F54PZasg0g'">PREMIUM PASS ($24.99/mo)</button>
+        <footer>PRODUCED BY NORI-SAN / NEXTBASE GLOBAL</footer>
     </section>
 </body>
 </html>
