@@ -6,41 +6,26 @@
     <title>Global Language Breaker - NEXT LEVEL</title>
     <style>
         :root { --gold: #D4AF37; --black: #000; }
-        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        body, html { margin: 0; padding: 0; width: 100%; height: 100%; background: var(--black); color: var(--gold); font-family: -apple-system, sans-serif; scroll-behavior: smooth; overflow-x: hidden; }
+        body, html { margin: 0; padding: 0; background: var(--black); color: var(--gold); font-family: sans-serif; text-align: center; }
         .splash { height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; background: radial-gradient(circle, #1a1a1a 0%, #000 100%); }
-        .logo-btn { width: 180px; cursor: pointer; filter: drop-shadow(0 0 25px rgba(212,175,55,0.4)); transition: 0.4s; }
-        .ready-text { margin-top: 25px; letter-spacing: 12px; font-weight: 900; font-size: 1.2rem; }
-        .onboarding { padding: 80px 25px; text-align: center; max-width: 600px; margin: 0 auto; }
-        .feature-card { border: 1px solid rgba(212,175,55,0.2); border-radius: 40px; padding: 45px 25px; margin-bottom: 30px; background: #080808; }
-        .feature-card h3 { margin: 0 0 15px; font-size: 1.5rem; letter-spacing: 4px; color: #fff; }
-        .pricing-zone { margin-top: 50px; padding-bottom: 60px; }
-        .btn-premium { background: var(--gold); color: #000; border: none; width: 100%; max-width: 360px; padding: 25px; font-weight: 900; border-radius: 25px; font-size: 1.1rem; cursor: pointer; margin-bottom: 10px; box-shadow: 0 10px 30px rgba(212,175,55,0.3); }
-        .logic-info { color: #555; font-size: 0.75rem; margin-bottom: 30px; font-weight: 600; }
-        .btn-standard { background: transparent; color: var(--gold); border: 2px solid var(--gold); width: 100%; max-width: 360px; padding: 20px; font-weight: 700; border-radius: 25px; font-size: 1rem; cursor: pointer; margin-bottom: 20px; }
-        footer { padding: 60px 20px; text-align: center; border-top: 1px solid #111; }
-        .legal { display: flex; justify-content: center; gap: 30px; color: #444; font-size: 0.7rem; letter-spacing: 3px; }
+        .logo-btn { width: 180px; cursor: pointer; filter: drop-shadow(0 0 20px rgba(212,175,55,0.4)); }
+        .btn-main { background: var(--gold); color: #000; border: none; width: 90%; max-width: 360px; padding: 25px; font-weight: 900; border-radius: 25px; font-size: 1.1rem; cursor: pointer; margin-bottom: 15px; }
+        .btn-sub { background: transparent; color: var(--gold); border: 2px solid var(--gold); width: 90%; max-width: 360px; padding: 20px; font-weight: 700; border-radius: 25px; font-size: 1rem; cursor: pointer; margin-bottom: 20px; }
+        footer { padding: 40px; color: #444; font-size: 0.7rem; border-top: 1px solid #111; }
     </style>
 </head>
 <body>
     <section class="splash">
         <img src="icon.png" class="logo-btn" onclick="document.getElementById('intro').scrollIntoView({behavior:'smooth'})">
-        <div class="ready-text">READY</div>
+        <div style="margin-top:20px; letter-spacing:10px;">READY</div>
     </section>
-    <section class="onboarding" id="intro">
-        <h2 style="letter-spacing: 8px; margin-bottom: 60px;">Global Language Breaker</h2>
-        <div class="feature-card"><h3>SMILE & MANNER</h3><p>Real-time safety & manners. Keep your smile anywhere.</p></div>
-        <div class="feature-card"><h3>CONNECT & BREAK</h3><p>150,000 phrases. Break the language barrier instantly.</p></div>
-        <div class="pricing-zone">
-            <button class="btn-premium" onclick="location.href='https://buy.stripe.com/7sY28t7Rje4UgzZ1DNasg0q'">PREMIUM TRAVEL PASS ($24.99)</button>
-            <div class="logic-info">VALID FOR 30 DAYS (EXTENDABLE TO 90)</div>
-            <button class="btn-standard" onclick="location.href='https://buy.stripe.com/bJedRbefH5yogzZfuDasg09'">GET BASIC PASS ($2.99 / MO)</button>
-            <button style="color:#555; background:none; border:none; text-decoration:underline; cursor:pointer;" onclick="location.href='./noir/index.html'">TRY FREE</button>
-        </div>
-        <footer>
-            <div class="legal"><span>SUPPORT</span><span>PRIVACY</span><span>TERMS</span></div>
-            <div style="margin-top:40px; color:#111; font-size:0.6rem; letter-spacing:5px;">PRODUCED BY NORI-SAN / NEXTBASE GLOBAL</div>
-        </footer>
+    <section id="intro" style="padding: 80px 20px;">
+        <h2>Global Language Breaker</h2>
+        <div style="margin-bottom:50px;">SMILE & MANNER: The shield for your adventure.</div>
+        <button class="btn-main" onclick="location.href='https://buy.stripe.com/7sY28t7Rje4UgzZ1DNasg0q'">GET TRAVEL PASS ($24.99)</button>
+        <button class="btn-sub" onclick="location.href='https://buy.stripe.com/bJedRbefH5yogzZfuDasg09'">GET BASIC PASS ($2.99 / MO)</button>
+        <button style="color:#555; background:none; border:none; text-decoration:underline; cursor:pointer; display:block; margin:20px auto;" onclick="location.href='./noir/index.html'">TRY FREE</button>
+        <footer>PRODUCED BY NORI-SAN / NEXTBASE GLOBAL</footer>
     </section>
 </body>
 </html>
