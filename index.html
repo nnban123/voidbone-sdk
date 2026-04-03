@@ -4,112 +4,78 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>GLB | NEXT BASE</title>
-  <link rel="stylesheet" href="styles.css" />
   <style>
-    /* 演出を捨て、機能と高級感に特化 */
-    body {
-      background: var(--bg);
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      color: var(--text);
+    /* ステラによる鋼の規律：一切の無駄を排除 */
+    html, body {
+      margin: 0; padding: 0; width: 100%; height: 100%;
+      background: #050505; color: #f3f3f3;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
       overflow: hidden;
     }
 
     .container {
-      text-align: center;
-      padding: 40px 20px;
-      width: 100%;
-      max-width: 400px;
+      text-align: center; width: 90%; max-width: 420px;
     }
 
-    .icon-box {
-      margin-bottom: 30px;
-    }
-
+    /* アイコン（icon.png）を神聖なシンボルとして中央に */
     .icon-img {
-      width: 100px;
-      height: auto;
-      filter: drop-shadow(var(--shadow-gold));
+      width: 120px; height: auto; margin-bottom: 20px;
+      filter: drop-shadow(0 0 20px rgba(224, 184, 93, 0.5));
     }
 
-    .brand-title {
-      font-size: 64px;
-      font-weight: 900;
-      letter-spacing: 0.1em;
-      margin: 0;
-      background: linear-gradient(135deg, #fff 0%, var(--gold) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .brand-name {
+      font-size: 72px; font-weight: 900; margin: 0;
+      letter-spacing: 0.15em; color: #ffd978; /* NORI-san standards: Gold */
     }
 
-    .description {
-      color: var(--muted);
-      font-size: 16px;
-      margin: 20px 0 40px;
-      line-height: 1.6;
+    .slogan {
+      font-size: 18px; color: #888; margin: 15px 0 60px;
+      letter-spacing: 0.1em; font-weight: 300;
     }
 
-    /* 最優先：確実に押せるSTARTボタン */
-    .btn-main {
+    /* 魂のSTARTボタン：翻訳画面（translate.html）への最短ルート */
+    .btn-action {
       display: block;
-      background: var(--gold-2);
-      color: #000;
-      padding: 22px;
-      font-size: 24px;
-      font-weight: 900;
-      text-decoration: none;
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow-gold);
-      letter-spacing: 0.1em;
-      transition: 0.3s;
-    }
-
-    .btn-main:hover {
-      transform: translateY(-3px);
-      background: #fff;
-    }
-
-    .price-tag {
-      margin-top: 20px;
-      color: var(--neon);
-      font-weight: bold;
-      font-size: 14px;
+      background: #ffd978; color: #000;
+      padding: 24px 0; font-size: 28px; font-weight: 900;
+      text-decoration: none; border-radius: 15px;
+      box-shadow: 0 10px 40px rgba(224, 184, 93, 0.4);
+      transition: 0.3s cubic-bezier(0.19, 1, 0.22, 1);
       letter-spacing: 0.2em;
     }
 
+    .btn-action:hover {
+      background: #fff; transform: translateY(-5px);
+      box-shadow: 0 15px 50px rgba(255, 255, 255, 0.3);
+    }
+
+    .price-notice {
+      margin-top: 25px; color: #69f0ff; /* Neon blue */
+      font-weight: bold; font-size: 15px; letter-spacing: 0.2em;
+    }
+
+    /* フッター：法務導線 */
     .footer-nav {
-      position: absolute;
-      bottom: 40px;
-      display: flex;
-      gap: 20px;
+      position: absolute; bottom: 40px; display: flex; gap: 24px;
     }
 
     .footer-nav a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 12px;
+      color: rgba(255, 255, 255, 0.3); text-decoration: none; font-size: 12px;
     }
   </style>
 </head>
 <body>
 
   <div class="container">
-    <div class="icon-box">
-      <img src="icon.png" alt="GLB" class="icon-img">
-    </div>
+    <img src="icon.png" alt="GLB" class="icon-img">
     
-    <h1 class="brand-title">GLB</h1>
-    <p class="description">
-      Meaning, Delivered.<br>
-      Professional Translation Gateway.
-    </p>
+    <h1 class="brand-name">GLB</h1>
+    <p class="slogan">MEANING, DELIVERED.</p>
 
-    <a href="translate.html" class="btn-main">START</a>
-    <p class="price-tag">$2.99 / One-time Access</p>
+    <a href="translate.html" class="btn-action">START</a>
+    
+    <p class="price-notice">$2.99 / ONE-TIME ACCESS</p>
   </div>
 
   <nav class="footer-nav">
